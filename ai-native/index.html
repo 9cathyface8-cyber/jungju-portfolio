@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>An Jungju AI Native Portfolio</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#111318;
+  --muted:#646b78;
+  --soft:#f6f7f9;
+  --line:#e8eaf0;
+  --point:#B21F5B;
+  --point-deep:#6E123B;
+  --mint:#8EF2C4;
+  --cyan:#7DDCFF;
+  --dark:#090B10;
+  --max:1120px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;background:#fbfbfc;color:var(--ink);overflow-x:hidden;word-break:keep-all}
+::selection{background:var(--point);color:#fff}
+a{color:inherit}
+.mono{font-family:'JetBrains Mono',monospace}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:15px max(24px,calc((100vw - var(--max))/2 + 24px));transition:.25s ease}
+.nav.scrolled{background:rgba(251,251,252,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
+.brand{font-size:15px;font-weight:800;letter-spacing:.2px}
+.nav-links{display:flex;gap:22px;font-size:13px;color:#666;font-weight:700}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--point)}
+.hero{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:42px;align-items:center;max-width:var(--max);margin:0 auto;padding:124px 24px 80px}
+.hero>*,
+.project-card>*,
+.agent-section>*{min-width:0}
+.tag{display:inline-flex;align-items:center;width:max-content;padding:6px 12px;border-radius:999px;background:#FBE8F0;color:var(--point);font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6.2vw,72px);line-height:1.05;letter-spacing:0;font-weight:900;margin-bottom:22px}
+.hero h1 span{color:var(--point)}
+.hero-copy{font-size:18px;line-height:1.76;color:#4c5360;max-width:760px;text-wrap:pretty}
+.hero-copy strong{color:#111;font-weight:850}
+.hero-panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 24px 60px rgba(20,22,28,.08)}
+.terminal{border-radius:20px;background:linear-gradient(145deg,#0a0d13,#17101a);color:#dfe8ff;padding:22px;border:1px solid rgba(255,255,255,.08);overflow:hidden}
+.terminal-head{display:flex;gap:7px;margin-bottom:20px}
+.dot{width:10px;height:10px;border-radius:50%;background:#ff5f57}
+.dot:nth-child(2){background:#ffbd2e}.dot:nth-child(3){background:#28c840}
+.cmd{font-size:13px;line-height:1.75;color:#99a3b5}
+.cmd b{color:#fff}.cmd .ok{color:var(--mint)}.cmd .pink{color:#ff75a8}
+.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px}
+.metric{padding:18px;background:#fff;border:1px solid var(--line);border-radius:18px;min-height:116px}
+.metric-num{font-size:32px;font-weight:900;color:var(--point);font-variant-numeric:tabular-nums}
+.metric-label{font-size:14px;font-weight:850;margin-top:4px}
+.metric-sub{font-size:12px;color:#8a909b;line-height:1.45;margin-top:4px;text-wrap:pretty}
+.section{max-width:var(--max);margin:0 auto;padding:84px 24px}
+.section-dark{background:var(--dark);color:#f7f8fb}
+.section-dark .inner{max-width:var(--max);margin:0 auto;padding:84px 24px}
+.section h2,.section-dark h2{font-size:clamp(28px,4vw,44px);line-height:1.18;font-weight:900;margin-bottom:12px;letter-spacing:0}
+.section-sub{font-size:16px;color:#6b7280;line-height:1.7;max-width:760px;margin-bottom:34px;text-wrap:pretty}
+.section-dark .section-sub{color:#9ba3b2}
+.signal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.signal-card,.project-card,.loop-card,.lesson-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;transition:.25s ease;min-width:0}
+.signal-card:hover,.project-card:hover,.loop-card:hover,.lesson-card:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(16,20,28,.08)}
+.signal-no{font-size:12px;color:var(--point);font-weight:900;letter-spacing:1px;margin-bottom:12px}
+.signal-title{font-size:18px;font-weight:900;margin-bottom:8px}
+.signal-desc{font-size:14px;color:#5d6570;line-height:1.65;text-wrap:pretty}
+.project-list{display:grid;gap:22px}
+.project-card{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:26px;align-items:center}
+.project-card.reverse{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+.project-card.reverse .project-media{order:2}
+.project-media img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid #dfe3ea;background:#f3f5f8}
+.project-media.phone img{max-height:520px;object-fit:contain;background:#101014}
+.project-kicker{font-size:12px;font-weight:900;letter-spacing:1.2px;color:var(--point);text-transform:uppercase;margin-bottom:9px}
+.project-title{font-size:28px;font-weight:950;line-height:1.18;margin-bottom:10px}
+.project-summary{font-size:15px;color:#4f5662;line-height:1.75;margin-bottom:18px;text-wrap:pretty}
+.spec-grid{display:grid;gap:10px;margin:18px 0}
+.spec{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid #eef0f4}
+.spec-label{font-size:12px;color:#999;font-weight:900;letter-spacing:.8px;text-transform:uppercase}
+.spec-text{font-size:14px;line-height:1.62;color:#333;text-wrap:pretty}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{padding:7px 10px;border-radius:999px;background:#f6f2f5;color:#73304c;font-size:12px;font-weight:800}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border-radius:12px;background:var(--point);color:#fff;text-decoration:none;font-size:13px;font-weight:900;border:1px solid var(--point)}
+.btn.secondary{background:#fff;color:var(--point)}
+.btn.dark{background:#111;color:#fff;border-color:#111}
+.failure-card{background:linear-gradient(145deg,#151018,#0b0d12);color:#f7f8fb;border-color:#28212c}
+.failure-card .project-summary,.failure-card .spec-text{color:#bbc0cc}
+.failure-card .spec{border-color:rgba(255,255,255,.1)}
+.failure-card .chip{background:rgba(255,255,255,.08);color:#f5c9da}
+.failure-visual{border-radius:18px;background:radial-gradient(circle at 10% 0%,rgba(178,31,91,.36),transparent 34%),linear-gradient(145deg,#141821,#090b10);padding:22px;border:1px solid rgba(255,255,255,.1);min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.schema-title{font-size:13px;color:#ff9abe;font-weight:900;letter-spacing:1px;margin-bottom:14px}
+.schema-row{display:flex;align-items:center;gap:10px;margin:9px 0;color:#c9d1df;font-size:13px}
+.schema-box{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);flex:1}
+.arrow{color:#ff75a8;font-weight:900}
+.postmortem{font-size:13px;color:#9ca4b2;line-height:1.6;margin-top:18px}
+.agent-section{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);gap:28px;align-items:center}
+.agent-shot{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#08090d;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.agent-shot img{display:block;width:100%;height:auto}
+.dark-card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:24px}
+.dark-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.dark-mini{padding:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px}
+.dark-mini strong{display:block;color:#fff;font-size:16px;margin-bottom:6px}
+.dark-mini span{display:block;color:#9ca4b2;font-size:13px;line-height:1.55}
+.loop-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.loop-card{padding:20px}
+.loop-step{font-size:12px;color:var(--point);font-weight:900;margin-bottom:10px}
+.loop-title{font-size:16px;font-weight:900;margin-bottom:8px}
+.loop-desc{font-size:13px;color:#666;line-height:1.6;text-wrap:pretty}
+.lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.footer{padding:82px 24px;background:#07080b;color:#fff;text-align:center}
+.footer h2{font-size:34px;line-height:1.25;margin-bottom:14px}
+.footer h2 span{color:#ff75a8}
+.footer p{color:#9ba3b2;line-height:1.72;font-size:15px;max-width:720px;margin:0 auto 24px}
+.footer small{color:#555}
+.fade{opacity:0;transform:translateY(26px);animation:fadeUp .8s ease forwards}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  filter:blur(8px);
+  transition:
+    opacity .78s cubic-bezier(.19,1,.22,1),
+    transform .78s cubic-bezier(.19,1,.22,1),
+    filter .78s cubic-bezier(.19,1,.22,1),
+    box-shadow .25s ease,
+    border-color .25s ease;
+  transition-delay:var(--reveal-delay,0ms);
+}
+.reveal.from-left{transform:translateX(-34px)}
+.reveal.from-right{transform:translateX(34px)}
+.reveal.in-view{opacity:1;transform:translate(0,0);filter:blur(0)}
+.project-card.reveal.in-view:hover,
+.signal-card.reveal.in-view:hover,
+.loop-card.reveal.in-view:hover,
+.lesson-card.reveal.in-view:hover{transform:translateY(-3px)}
+.project-media img{transition:transform .7s cubic-bezier(.19,1,.22,1),filter .7s cubic-bezier(.19,1,.22,1)}
+.project-card:hover .project-media img{transform:scale(1.018);filter:saturate(1.06)}
+.btn{transition:transform .22s ease,box-shadow .22s ease,background .22s ease,color .22s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(178,31,91,.18)}
+.count-num{display:inline-block;min-width:.72em;will-change:contents,transform,filter}
+.count-num.counting{animation:numberLift .68s ease both}
+@keyframes numberLift{
+  0%{opacity:.42;transform:translateY(7px);filter:blur(2px)}
+  100%{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .fade{animation:none;opacity:1;transform:none}
+  .reveal,.reveal.from-left,.reveal.from-right{opacity:1;transform:none;filter:none;transition:none}
+  .project-media img,.btn{transition:none}
+  .count-num.counting{animation:none}
+}
+@media(max-width:880px){
+  .hero,.project-card,.project-card.reverse,.agent-section{grid-template-columns:minmax(0,1fr)!important}
+  .project-card.reverse .project-media{order:0}
+  .metric-grid,.signal-grid,.loop-grid,.lesson-grid,.dark-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero{width:100%;max-width:100%;padding:104px 20px 58px;gap:26px;min-height:auto;overflow:hidden}
+  .hero>div,.hero-panel{width:100%;max-width:100%;min-width:0}
+  .section{padding:64px 20px}
+  .section-dark .inner{padding:64px 20px}
+  .hero h1{font-size:clamp(31px,9vw,42px);line-height:1.1}
+  .hero-copy{font-size:16px;line-height:1.72}
+  .hero-copy,.section-sub,.project-summary,.spec-text,.signal-desc,.loop-desc,.footer p{width:100%;max-width:100%;overflow-wrap:anywhere;word-break:normal;text-wrap:auto}
+  .hero-panel{padding:16px;border-radius:22px}
+  .terminal{padding:18px;border-radius:17px}
+  .section h2,.section-dark h2{font-size:clamp(26px,8vw,34px);line-height:1.22}
+  .section-sub{font-size:15px;line-height:1.68;margin-bottom:26px}
+  .project-card{padding:18px;border-radius:18px;gap:18px}
+  .project-title{font-size:24px;line-height:1.24}
+  .project-summary{font-size:14px;line-height:1.7}
+  .spec{grid-template-columns:1fr;gap:5px;padding:11px 0}
+  .spec-text{font-size:13px;line-height:1.62}
+  .project-media.phone img{max-height:420px}
+  .agent-shot{max-width:420px;margin:0 auto}
+  .footer h2{font-size:26px}
+  .footer{padding:68px 20px}
+}
+@media(min-width:881px) and (max-width:1100px){
+  .signal-grid,.loop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="brand mono">jungju.ai</div>
+  <div class="nav-links">
+    <a href="#signals">AI Native</a>
+    <a href="#projects">Projects</a>
+    <a href="#hermes">Hermes</a>
+    <a href="#process">Workflow</a>
+    <a href="../youtube-pd/">YouTube PD</a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div>
+      <div class="tag fade">AI NATIVE TOOL PORTFOLIO</div>
+      <h1 class="fade d1">일상의 병목을<br><span>AI 제품 플로우로</span><br><span>바꾸는 사람</span></h1>
+      <p class="hero-copy fade d2">
+        저는 AI를 단순히 문장 생성 도구로 쓰지 않습니다. 가족의 펜션 예약 상담, 아이디어 발산, 투자 리플레이, 위치 기반 QA, 정부지원사업 문서 작성처럼 생활 속에서 반복되는 문제를 <strong>AI 워크플로우와 자체 제작 웹 도구</strong>로 분해하고 배포해왔습니다.<br><br>
+        이 포트폴리오는 비개발자 관점에서 문제를 정의하고, LLM·에이전트·프론트엔드·자동화 흐름을 연결해 실제로 작동하는 프로토타입으로 만든 기록입니다.
+      </p>
+      <div class="metric-grid fade d3">
+        <div class="metric reveal">
+          <div class="metric-num"><span class="count-num" data-count="6">0</span></div>
+          <div class="metric-label">자체 제작 프로토타입</div>
+          <div class="metric-sub">예약, 아이데이션, 금융 시뮬레이션, QA, 자기관리, 문서 자동화</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-num"><span class="count-num" data-count="4">0</span></div>
+          <div class="metric-label">배포 환경 경험</div>
+          <div class="metric-sub">Netlify, Vercel, Cloudflare Tunnel, 정적 웹 배포</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-num"><span class="count-num" data-count="1">0</span></div>
+          <div class="metric-label">개인 에이전트 운영면</div>
+          <div class="metric-sub">Telegram을 허브로 Codex, Research, Obsidian 자동화 연결</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-num">0→1</div>
+          <div class="metric-label">문제 정의부터 구현까지</div>
+          <div class="metric-sub">아이디어, 구조화, 화면 설계, 배포, 회고를 직접 수행</div>
+        </div>
+      </div>
+    </div>
+    <aside class="hero-panel fade d2">
+      <div class="terminal">
+        <div class="terminal-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="cmd mono">
+          <b>$ ai-native-check</b><br>
+          문제 정의 <span class="ok">passed</span><br>
+          LLM workflow 설계 <span class="ok">passed</span><br>
+          자체 배포 프로토타입 <span class="ok">passed</span><br>
+          실패 원인 분석 <span class="ok">passed</span><br>
+          일상 병목 자동화 <span class="pink">in production</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section" id="signals">
+    <div class="tag">AI NATIVE SIGNALS</div>
+    <h2>채용자가 확인하고 싶은 것은<br>“AI를 얼마나 실무적으로 쓰는가”입니다</h2>
+    <p class="section-sub">
+      저는 프롬프트 결과물을 보여주는 데서 멈추지 않고, AI가 들어갈 자리를 제품 구조 안에 배치합니다. 사용자의 입력, 모델의 판단, 화면의 피드백, 사람의 승인 지점을 나누어 도구가 실제 생활에서 돌아가게 만드는 쪽에 집중합니다.
+    </p>
+    <div class="signal-grid">
+      <div class="signal-card reveal">
+        <div class="signal-no">01</div>
+        <div class="signal-title">Problem to Product</div>
+        <p class="signal-desc">“불편하다”에서 끝내지 않고 예약, 사고 확장, 모의투자, QA처럼 문제를 사용 가능한 화면과 플로우로 변환합니다.</p>
+      </div>
+      <div class="signal-card reveal">
+        <div class="signal-no">02</div>
+        <div class="signal-title">LLM Orchestration</div>
+        <p class="signal-desc">AI가 해야 할 판단과 사람이 확인해야 할 지점을 분리해 상담, 추천, 코칭, 문서 초안화에 맞는 역할을 설계합니다.</p>
+      </div>
+      <div class="signal-card reveal">
+        <div class="signal-no">03</div>
+        <div class="signal-title">Fast Prototype</div>
+        <p class="signal-desc">아이디어를 설명만 하지 않고, 웹으로 바로 배포해 링크로 검증 가능한 형태까지 가져갑니다.</p>
+      </div>
+      <div class="signal-card reveal">
+        <div class="signal-no">04</div>
+        <div class="signal-title">Failure Literacy</div>
+        <p class="signal-desc">실패한 툴도 숨기지 않습니다. 데이터 소스, 검증 한계, 자동화 품질의 병목을 분석해 다음 설계에 반영합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="tag">BUILT WITH AI</div>
+    <h2>AI Tool 활용 자체 제작 결과물</h2>
+    <p class="section-sub">
+      각 프로젝트는 단순 데모가 아니라 “왜 만들었는가, AI가 어디에 개입하는가, 사용자는 어떻게 쓰는가”를 기준으로 정리했습니다.
+    </p>
+
+    <div class="project-list">
+      <article class="project-card reveal from-left">
+        <div class="project-media"><img src="./assets/sansuae.jpg" alt="산수애 펜션 예약 자동화 웹사이트 화면"></div>
+        <div>
+          <div class="project-kicker">Sansuae Pension</div>
+          <h3 class="project-title">산수애 예약 상담 자동화</h3>
+          <p class="project-summary">강원도 영월에서 펜션을 운영하는 가족 사업의 CS 병목을 줄이기 위해 만든 예약 흐름 자동화 프로토타입입니다. 사람이 매번 동일한 상담 품질을 유지하기 어려운 환경에서, AI가 문의 의도를 정리하고 예약 가능 여부와 확정 단계까지 안내하는 구조를 목표로 설계했습니다.</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-label">Intent</div><div class="spec-text">반복 예약 문의, 객실 안내, 일정 확인, 확정 안내를 표준화해 운영자의 응답 부담을 줄입니다.</div></div>
+            <div class="spec"><div class="spec-label">Engine</div><div class="spec-text">사용자 입력을 예약 의도, 날짜, 인원, 객실 조건으로 구조화하고 다음 행동을 안내하는 상담 플로우로 설계했습니다.</div></div>
+            <div class="spec"><div class="spec-label">Usage</div><div class="spec-text">고객은 객실과 가능일을 확인하고 예약 문의로 진입합니다. 운영자는 반복 질문보다 예외 처리와 최종 확인에 집중합니다.</div></div>
+          </div>
+          <div class="chips"><span class="chip">AI Reservation Flow</span><span class="chip">CS Automation</span><span class="chip">Human Handoff</span></div>
+          <div class="actions"><a class="btn" href="https://nyangjeongju-pension.netlify.app/?v=final-sansuae-20260708" target="_blank" rel="noopener">Live Prototype 열기</a></div>
+        </div>
+      </article>
+
+      <article class="project-card reverse reveal from-right">
+        <div class="project-media"><img src="./assets/mindmap.jpg" alt="AI 마인드맵 아이디어 확장 도구 화면"></div>
+        <div>
+          <div class="project-kicker">AI Mind Map</div>
+          <h3 class="project-title">아이디어 마인드맵</h3>
+          <p class="project-summary">창의력은 빈 화면에서 바로 나오지 않는다는 문제의식에서 출발했습니다. 사용자가 주제를 입력하면 AI가 연상어를 관련도와 의외성 기준으로 추천하고, 선택한 단어를 다시 가지처럼 확장해 아이디어를 구체화하는 발산형 도구입니다.</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-label">Intent</div><div class="spec-text">기획 초반의 막막함을 줄이고, 단어 기반 발산을 통해 콘텐츠·서비스 아이디어의 후보군을 빠르게 넓힙니다.</div></div>
+            <div class="spec"><div class="spec-label">Engine</div><div class="spec-text">키워드를 의미 벡터처럼 다루며 관련성 높은 단어와 예상 밖의 연결어를 함께 제시해 사고의 폭을 확장합니다.</div></div>
+            <div class="spec"><div class="spec-label">Usage</div><div class="spec-text">주제를 넣고 추천 단어를 누르면 하위 가지가 이어집니다. 사용자는 마음에 드는 가지를 따라가며 아이디어의 방향을 잡습니다.</div></div>
+          </div>
+          <div class="chips"><span class="chip">Semantic Expansion</span><span class="chip">Idea Branching</span><span class="chip">Creative Ops</span></div>
+          <div class="actions"><a class="btn" href="https://idea-warehouse-ecru.vercel.app/" target="_blank" rel="noopener">Live Prototype 열기</a></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal from-left">
+        <div class="project-media"><img src="./assets/chart-game.jpg" alt="국내 대표주 일봉 리플레이 차트게임 화면"></div>
+        <div>
+          <div class="project-kicker">KRX Replay Desk</div>
+          <h3 class="project-title">차트게임</h3>
+          <p class="project-summary">실제 자산시장에 돈을 넣기 전에 차트 감각을 훈련할 수 있도록 만든 모의투자 게임입니다. 국내 대표주 일봉 데이터를 미래 구간을 숨긴 채 리플레이하고, Buy/Sell, 레버리지, 고정 슬리피지, 마진콜, 세션 종료 리포트, B/S 마커와 진입가 가이드선을 포함했습니다.</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-label">Intent</div><div class="spec-text">실제 손실 없이 매수·매도 판단, 레버리지 리스크, 추세 대응 감각을 게임처럼 반복 훈련합니다.</div></div>
+            <div class="spec"><div class="spec-label">Engine</div><div class="spec-text">가격의 미래를 숨긴 리플레이 환경 위에 거래 규칙, 포지션 장부, 마진콜 조건, 세션 리포트를 얹었습니다.</div></div>
+            <div class="spec"><div class="spec-label">AI Coach</div><div class="spec-text">수익과 손실이 발생한 이유를 AI가 코치처럼 설명해, 결과를 단순 점수가 아니라 다음 판단의 힌트로 바꾸는 구조를 지향했습니다.</div></div>
+          </div>
+          <div class="chips"><span class="chip">Replay Simulation</span><span class="chip">AI Coaching</span><span class="chip">Risk Training</span></div>
+          <div class="actions"><a class="btn" href="https://dec-sport-toe-keeps.trycloudflare.com/" target="_blank" rel="noopener">Live Prototype 열기</a></div>
+        </div>
+      </article>
+
+      <article class="project-card reverse reveal from-right">
+        <div class="project-media"><img src="./assets/system-window.jpg" alt="AI 자기관리 시스템 윈도우 상태창 화면"></div>
+        <div>
+          <div class="project-kicker">System Window</div>
+          <h3 class="project-title">AI 자기관리 상태창</h3>
+          <p class="project-summary">웹소설과 게임의 상태창 문법을 자기관리 UX로 가져온 AI 라이프 오퍼레이션 툴입니다. 사용자의 mental, energy, body, risk 상태를 입력받고 AI가 현재 컨디션을 분석해 하루의 행동을 단순한 할 일이 아니라 목표 지점까지 도달하기 위한 퀘스트로 재구성합니다.</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-label">Intent</div><div class="spec-text">막연한 자기계발을 수치화된 상태, 오늘의 퀘스트, 위험 신호로 번역해 사용자가 하루를 게임처럼 운영하게 만듭니다.</div></div>
+            <div class="spec"><div class="spec-label">Engine</div><div class="spec-text">컨디션 입력값과 자유 서술을 바탕으로 AI가 회복, 집중, 리스크 관리 관점의 우선순위를 정리하고 행동 제안을 생성합니다.</div></div>
+            <div class="spec"><div class="spec-label">Usage</div><div class="spec-text">아침에 상태를 스캔하고, 생성된 상태창과 퀘스트를 확인한 뒤 하루 실행 루틴을 조정하는 방식으로 사용합니다.</div></div>
+          </div>
+          <div class="chips"><span class="chip">AI Life OS</span><span class="chip">Quest Design</span><span class="chip">Condition Scoring</span><span class="chip">Behavior Coaching</span></div>
+          <div class="actions"><a class="btn" href="https://web-vercel-inky.vercel.app/" target="_blank" rel="noopener">Live Prototype 열기</a></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal from-left">
+        <div class="project-media"><img src="./assets/gps-tester.jpg" alt="Naver Pin GPS Tester 앱 프리뷰 화면"></div>
+        <div>
+          <div class="project-kicker">Location QA Utility</div>
+          <h3 class="project-title">Naver Pin GPS Tester</h3>
+          <p class="project-summary">해외 예약·결제 서비스는 접속 위치에 따라 화면, 가격, 결제 흐름, 예약 가능 상태가 달라질 수 있습니다. 이 도구는 위치 의존적인 예약/결제 플로우를 테스트하기 위해 좌표 송출 상태를 확인하는 QA 유틸리티로 정리했습니다.</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-label">Intent</div><div class="spec-text">위치 정보에 따라 달라지는 예약 화면과 결제 진입 상태를 비교하고, 서비스 플로우의 지역별 차이를 검증합니다.</div></div>
+            <div class="spec"><div class="spec-label">Engine</div><div class="spec-text">좌표 선택, 송출 상태, 마지막 위도·경도, 정확도, 업데이트 상태를 한 화면에서 확인하도록 구성했습니다.</div></div>
+            <div class="spec"><div class="spec-label">Usage</div><div class="spec-text">테스트 좌표를 선택한 뒤 시작/중지 상태를 확인하며 위치 기반 UX가 의도대로 동작하는지 검토합니다.</div></div>
+          </div>
+          <div class="chips"><span class="chip">Geo QA</span><span class="chip">Mobile Utility</span><span class="chip">Location State</span></div>
+          <div class="actions"><a class="btn" href="https://naver-pin-gps-tester-web.vercel.app/" target="_blank" rel="noopener">Live Prototype 열기</a></div>
+        </div>
+      </article>
+
+      <article class="project-card failure-card reveal from-left">
+        <div class="failure-visual">
+          <div>
+            <div class="schema-title mono">BUSINESS PLAN STUDIO / POSTMORTEM</div>
+            <div class="schema-row"><div class="schema-box">지원사업 공고 분석</div><span class="arrow">→</span><div class="schema-box">TAM/SAM/SOM 조사</div></div>
+            <div class="schema-row"><div class="schema-box">성공사례 마이닝</div><span class="arrow">→</span><div class="schema-box">LLM 초안 생성</div></div>
+            <div class="schema-row"><div class="schema-box">OAuth 기반 중앙 관제</div><span class="arrow">→</span><div class="schema-box">문서 컴파일</div></div>
+          </div>
+          <p class="postmortem">결론: 문서 골격과 초안 생성은 가능했지만, 합격 사례 데이터의 품질과 출처 검증 한계 때문에 제출 품질 자동화까지는 확장하지 않았습니다.</p>
+        </div>
+        <div>
+          <div class="project-kicker">Failed Prototype</div>
+          <h3 class="project-title">Business Plan Studio</h3>
+          <p class="project-summary">정부지원사업을 준비하던 가족의 문서 작성 병목을 해결하기 위해 만든 사업계획서 보조 툴입니다. 목표는 TAM/SAM/SOM 조사와 정부지원사업 서류 구성을 AI가 어시스트하고, OAuth 기반으로 LLM과 외부 데이터를 연결해 중앙 관제형 작성 시스템을 만드는 것이었습니다.</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-label">Intent</div><div class="spec-text">문서 작성 요령이 부족한 사용자가 시장 규모, 고객, 문제 정의, 사업화 전략의 초안을 빠르게 만들도록 돕습니다.</div></div>
+            <div class="spec"><div class="spec-label">Limit</div><div class="spec-text">성공 사업계획서 사례를 대규모로 수집하고 검증하는 단계에서 데이터 품질과 저작권·출처 검증 병목이 발생했습니다.</div></div>
+            <div class="spec"><div class="spec-label">Learning</div><div class="spec-text">AI 문서 자동화는 초안 생성보다 provenance, claim check, 평가 기준 정렬이 핵심이라는 것을 확인했습니다.</div></div>
+          </div>
+          <div class="chips"><span class="chip">LLM Drafting</span><span class="chip">OAuth Concept</span><span class="chip">Data Provenance</span><span class="chip">Postmortem</span></div>
+          <div class="actions"><a class="btn secondary" href="https://distribution-kiss-obj-herbal.trycloudflare.com/business-plan-studio/" target="_blank" rel="noopener">Prototype 열기</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-dark" id="hermes">
+    <div class="inner">
+      <div class="agent-section">
+        <div class="agent-shot reveal from-left"><img src="./assets/hermes-agent.jpg" alt="Telegram 기반 Hermes 개인 에이전트 운영 화면"></div>
+        <div class="dark-card reveal from-right">
+          <div class="tag">HERMES AGENT STACK</div>
+          <h2>일상 업무를 에이전트 단위로 쪼개<br>Telegram에서 운영합니다</h2>
+          <p class="section-sub">Hermes는 제가 쓰는 자체 에이전트 운영면입니다. Codex, Obsidian, Research, Paperclip, Notebook 같은 역할별 채널을 나누고, 오류 알림·임시저장·리서치·문서 처리처럼 반복되는 병목을 대화형 인터페이스로 모아 관리합니다.</p>
+          <div class="dark-grid">
+            <div class="dark-mini"><strong>Agent Routing</strong><span>업무 유형별로 에이전트를 분리해 리서치, 코드, 메모, 파일 처리 흐름을 나눕니다.</span></div>
+            <div class="dark-mini"><strong>Exception Monitoring</strong><span>인증 오류, provider 실패, gateway 재시작 같은 병목을 메시지로 확인합니다.</span></div>
+            <div class="dark-mini"><strong>Mobile Command Surface</strong><span>PC 앞이 아니어도 Telegram에서 작업 상태를 확인하고 다음 지시를 내릴 수 있게 구성했습니다.</span></div>
+            <div class="dark-mini"><strong>Personal Ops Layer</strong><span>AI를 단일 챗봇이 아니라 일상 운영체계의 작은 부품들로 배치하는 실험입니다.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="tag">HOW I BUILD</div>
+    <h2>AI Native하게 만든다는 것은<br>프롬프트를 잘 쓰는 것보다 구조를 잘 나누는 것입니다</h2>
+    <p class="section-sub">제가 만든 도구들은 완성도가 모두 같지는 않습니다. 대신 공통적으로 “문제를 작은 판단 단위로 쪼개고, AI가 맡을 영역과 사람이 확인할 영역을 분리한 뒤, 링크로 테스트 가능한 형태까지 만든다”는 흐름을 따릅니다.</p>
+    <div class="loop-grid">
+      <div class="loop-card reveal"><div class="loop-step">01</div><div class="loop-title">병목 정의</div><p class="loop-desc">반복 문의, 아이디어 막힘, 투자 판단, 위치 조건, 문서 작성처럼 실제로 막히는 순간을 먼저 잡습니다.</p></div>
+      <div class="loop-card reveal"><div class="loop-step">02</div><div class="loop-title">입출력 구조화</div><p class="loop-desc">AI에게 던질 입력과 사용자에게 돌려줄 출력을 날짜, 조건, 키워드, 상태값으로 나눕니다.</p></div>
+      <div class="loop-card reveal"><div class="loop-step">03</div><div class="loop-title">AI 역할 배치</div><p class="loop-desc">상담, 추천, 코칭, 요약, 초안화 중 AI가 잘하는 판단만 맡기고 예외는 사람에게 남깁니다.</p></div>
+      <div class="loop-card reveal"><div class="loop-step">04</div><div class="loop-title">프로토타입 배포</div><p class="loop-desc">결과물을 설명서가 아니라 직접 눌러볼 수 있는 웹 링크로 만들어 검증합니다.</p></div>
+      <div class="loop-card reveal"><div class="loop-step">05</div><div class="loop-title">회고와 중단 판단</div><p class="loop-desc">성공한 흐름은 고도화하고, 데이터·검증 한계가 큰 실험은 실패 이유를 남기고 멈춥니다.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="tag">WHAT THIS PROVES</div>
+    <h2>비전문가 레벨에서 AI 활용도를 증명하는 방식</h2>
+    <p class="section-sub">저는 “코드를 전부 손으로 짜는 개발자”로 보이려는 것이 아닙니다. 채용자가 확인해야 할 지점은, 제가 AI를 이용해 문제를 제품 단위로 번역하고, 필요한 도구를 조합해 실제로 돌아가는 결과물을 만든다는 점입니다.</p>
+    <div class="lesson-grid">
+      <div class="lesson-card reveal">
+        <div class="signal-no">POINT 01</div>
+        <div class="signal-title">말보다 링크가 먼저입니다</div>
+        <p class="signal-desc">구상 단계에서 멈추지 않고 Netlify, Vercel, Cloudflare로 배포해 실제 화면과 플로우를 검증합니다.</p>
+      </div>
+      <div class="lesson-card reveal">
+        <div class="signal-no">POINT 02</div>
+        <div class="signal-title">AI의 역할을 제품 안에 배치합니다</div>
+        <p class="signal-desc">LLM을 글쓰기 도구로만 쓰지 않고 상담, 추천, 코칭, 리포팅, 문서 초안화의 기능 단위로 설계합니다.</p>
+      </div>
+      <div class="lesson-card reveal">
+        <div class="signal-no">POINT 03</div>
+        <div class="signal-title">실패도 설계 자산으로 남깁니다</div>
+        <p class="signal-desc">Business Plan Studio처럼 실패한 실험도 데이터 소스와 검증 한계를 기록해 다음 자동화의 기준으로 삼습니다.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <h2>AI를 잘 쓴다는 것은<br><span>일상의 문제를 작동하는 구조로 바꾸는 일</span>이라고 생각합니다</h2>
+  <p>저는 AI를 신기한 도구로 소비하기보다, 반복되는 문제를 줄이고 판단을 보조하며 실행 속도를 높이는 개인 운영체계로 다뤄왔습니다. 이 포트폴리오는 그 방식이 실제 링크와 화면으로 남은 기록입니다.</p>
+  <small class="mono">Built by jungju.an · AI Native Tool Portfolio</small>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+const easeOutCubic=t=>1-Math.pow(1-t,3);
+const animateCount=(el)=>{
+  if(el.dataset.done)return;
+  el.dataset.done='1';
+  const target=Number(el.dataset.count||0);
+  const duration=950;
+  const start=performance.now();
+  el.classList.add('counting');
+  const tick=(now)=>{
+    const progress=Math.min((now-start)/duration,1);
+    const value=Math.round(target*easeOutCubic(progress));
+    el.textContent=value.toLocaleString('ko-KR');
+    if(progress<1)requestAnimationFrame(tick);
+    else{
+      el.textContent=target.toLocaleString('ko-KR');
+      setTimeout(()=>el.classList.remove('counting'),260);
+    }
+  };
+  requestAnimationFrame(tick);
+};
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;
+    el.classList.add('in-view');
+    el.querySelectorAll?.('.count-num').forEach(animateCount);
+    observer.unobserve(el);
+  });
+},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach((el,index)=>{
+  el.style.setProperty('--reveal-delay',`${Math.min(index%5,4)*55}ms`);
+  observer.observe(el);
+});
+document.querySelectorAll('.count-num').forEach(el=>{
+  const parent=el.closest('.reveal');
+  if(!parent)animateCount(el);
+});
+</script>
+</body>
+</html>
