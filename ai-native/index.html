@@ -91,6 +91,11 @@ a{color:inherit}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border-radius:12px;background:var(--point);color:#fff;text-decoration:none;font-size:13px;font-weight:900;border:1px solid var(--point)}
 .btn.secondary{background:#fff;color:var(--point)}
 .btn.dark{background:#111;color:#fff;border-color:#111}
+.proof-card{display:grid;grid-template-columns:126px minmax(0,1fr);gap:14px;align-items:center;margin-top:18px;padding:14px;border:1px solid #eef0f4;border-radius:16px;background:#fbfafc}
+.proof-card img{width:126px;height:178px;object-fit:cover;object-position:center 62%;border-radius:12px;border:1px solid #dfe3ea;background:#08090d}
+.proof-kicker{font-size:11px;color:var(--point);font-weight:950;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.proof-title{font-size:15px;font-weight:950;margin-bottom:6px}
+.proof-text{font-size:13px;color:#59616d;line-height:1.6;text-wrap:pretty}
 .failure-card{background:linear-gradient(145deg,#151018,#0b0d12);color:#f7f8fb;border-color:#28212c}
 .failure-card .project-summary,.failure-card .spec-text{color:#bbc0cc}
 .failure-card .spec{border-color:rgba(255,255,255,.1)}
@@ -183,6 +188,8 @@ a{color:inherit}
   .spec-text{font-size:13px;line-height:1.62}
   .actions{gap:8px}
   .btn{width:100%}
+  .proof-card{grid-template-columns:1fr;padding:13px;gap:12px}
+  .proof-card img{width:100%;height:auto;max-height:360px;object-fit:contain;object-position:center;background:#08090d}
   .schema-row{display:grid;grid-template-columns:1fr;gap:8px}
   .schema-row .arrow{justify-self:center;transform:rotate(90deg)}
   .project-media.phone img{max-height:420px}
@@ -305,6 +312,14 @@ a{color:inherit}
             <div class="spec"><div class="spec-label">Usage</div><div class="spec-text">고객은 객실과 가능일을 확인하고 예약 문의로 진입합니다. 운영자는 반복 질문보다 예외 처리와 최종 확인에 집중합니다.</div></div>
           </div>
           <div class="chips"><span class="chip">AI Reservation Flow</span><span class="chip">CS Automation</span><span class="chip">Human Handoff</span></div>
+          <div class="proof-card">
+            <img src="./assets/sansuae-reservation-sms.jpg" alt="산수애 예약 확정 시 AI가 발송한 예약정보 문자 예시">
+            <div>
+              <div class="proof-kicker">Reservation Confirmed</div>
+              <div class="proof-title">예약 완료 시 예약정보 자동 발송</div>
+              <p class="proof-text">AI가 고객명, 연락처, 객실·인원, 체크인/체크아웃, 금액, 예약번호를 정리해 문자로 발송하는 흐름까지 구현했습니다.</p>
+            </div>
+          </div>
           <div class="actions"><a class="btn" href="https://nyangjeongju-pension.netlify.app/?v=final-sansuae-20260708" target="_blank" rel="noopener">Live Prototype 열기</a></div>
         </div>
       </article>
