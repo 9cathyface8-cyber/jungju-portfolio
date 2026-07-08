@@ -26,7 +26,7 @@
   --max:1120px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;background:#fbfbfc;color:var(--ink);overflow-x:hidden;word-break:keep-all}
+body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;background:#fbfbfc;color:var(--ink);overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
 ::selection{background:var(--point);color:#fff}
 a{color:inherit}
 .mono{font-family:'JetBrains Mono',monospace}
@@ -36,7 +36,7 @@ a{color:inherit}
 .nav-links{display:flex;gap:22px;font-size:13px;color:#666;font-weight:700}
 .nav-links a{text-decoration:none}
 .nav-links a:hover{color:var(--point)}
-.hero{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:42px;align-items:center;max-width:var(--max);margin:0 auto;padding:124px 24px 80px}
+.hero{min-height:min(100svh,860px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:42px;align-items:center;max-width:var(--max);margin:0 auto;padding:124px 24px 80px}
 .hero>*,
 .project-card>*,
 .agent-section>*{min-width:0}
@@ -45,6 +45,9 @@ a{color:inherit}
 .hero h1 span{color:var(--point)}
 .hero-copy{font-size:18px;line-height:1.76;color:#4c5360;max-width:760px;text-wrap:pretty}
 .hero-copy strong{color:#111;font-weight:850}
+.copy-block{display:block}
+.copy-block+.copy-block{margin-top:22px}
+.title-line{display:block}
 .hero-panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 24px 60px rgba(20,22,28,.08)}
 .terminal{border-radius:20px;background:linear-gradient(145deg,#0a0d13,#17101a);color:#dfe8ff;padding:22px;border:1px solid rgba(255,255,255,.08);overflow:hidden}
 .terminal-head{display:flex;gap:7px;margin-bottom:20px}
@@ -114,7 +117,7 @@ a{color:inherit}
 .lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .footer{padding:82px 24px;background:#07080b;color:#fff;text-align:center}
 .footer h2{font-size:34px;line-height:1.25;margin-bottom:14px}
-.footer h2 span{color:#ff75a8}
+.footer h2 .accent{color:#ff75a8}
 .footer p{color:#9ba3b2;line-height:1.72;font-size:15px;max-width:720px;margin:0 auto 24px}
 .footer small{color:#555}
 .fade{opacity:0;transform:translateY(26px);animation:fadeUp .8s ease forwards}
@@ -160,12 +163,14 @@ a{color:inherit}
   .project-card.reverse .project-media{order:0}
   .metric-grid,.signal-grid,.loop-grid,.lesson-grid,.dark-grid{grid-template-columns:1fr}
   .nav-links{display:none}
-  .hero{width:100%;max-width:100%;padding:104px 20px 58px;gap:26px;min-height:auto;overflow:hidden}
+  .hero{width:100%;max-width:100%;padding:96px 20px 56px;gap:26px;min-height:auto;overflow:hidden}
   .hero>div,.hero-panel{width:100%;max-width:100%;min-width:0}
   .section{padding:64px 20px}
   .section-dark .inner{padding:64px 20px}
   .hero h1{font-size:clamp(31px,9vw,42px);line-height:1.1}
   .hero-copy{font-size:16px;line-height:1.72}
+  .copy-block+.copy-block{margin-top:20px}
+  .title-line{display:inline}
   .hero-copy,.section-sub,.project-summary,.spec-text,.signal-desc,.loop-desc,.footer p{width:100%;max-width:100%;overflow-wrap:anywhere;word-break:normal;text-wrap:auto}
   .hero-panel{padding:16px;border-radius:22px}
   .terminal{padding:18px;border-radius:17px}
@@ -176,6 +181,10 @@ a{color:inherit}
   .project-summary{font-size:14px;line-height:1.7}
   .spec{grid-template-columns:1fr;gap:5px;padding:11px 0}
   .spec-text{font-size:13px;line-height:1.62}
+  .actions{gap:8px}
+  .btn{width:100%}
+  .schema-row{display:grid;grid-template-columns:1fr;gap:8px}
+  .schema-row .arrow{justify-self:center;transform:rotate(90deg)}
   .project-media.phone img{max-height:420px}
   .agent-shot{max-width:420px;margin:0 auto}
   .footer h2{font-size:26px}
@@ -205,8 +214,8 @@ a{color:inherit}
       <div class="tag fade">AI NATIVE TOOL PORTFOLIO</div>
       <h1 class="fade d1">일상의 병목을<br><span>AI 제품 플로우로</span><br><span>바꾸는 사람</span></h1>
       <p class="hero-copy fade d2">
-        저는 AI를 단순히 문장 생성 도구로 쓰지 않습니다. 가족의 펜션 예약 상담, 아이디어 발산, 투자 리플레이, 위치 기반 QA, 정부지원사업 문서 작성처럼 생활 속에서 반복되는 문제를 <strong>AI 워크플로우와 자체 제작 웹 도구</strong>로 분해하고 배포해왔습니다.<br><br>
-        이 포트폴리오는 비개발자 관점에서 문제를 정의하고, LLM·에이전트·프론트엔드·자동화 흐름을 연결해 실제로 작동하는 프로토타입으로 만든 기록입니다.
+        <span class="copy-block">저는 AI를 단순히 문장 생성 도구로 쓰지 않습니다. 가족의 펜션 예약 상담, 아이디어 발산, 투자 리플레이, 위치 기반 QA, 정부지원사업 문서 작성처럼 생활 속에서 반복되는 문제를 <strong>AI 워크플로우와 자체 제작 웹 도구</strong>로 분해하고 배포해왔습니다.</span>
+        <span class="copy-block">이 포트폴리오는 비개발자 관점에서 문제를 정의하고, LLM·에이전트·프론트엔드·자동화 흐름을 연결해 실제로 작동하는 프로토타입으로 만든 기록입니다.</span>
       </p>
       <div class="metric-grid fade d3">
         <div class="metric reveal">
@@ -248,7 +257,7 @@ a{color:inherit}
 
   <section class="section" id="signals">
     <div class="tag">AI NATIVE SIGNALS</div>
-    <h2>채용자가 확인하고 싶은 것은<br>“AI를 얼마나 실무적으로 쓰는가”입니다</h2>
+    <h2><span class="title-line">채용자가 확인하고 싶은 것은</span> <span class="title-line">“AI를 얼마나 실무적으로 쓰는가”입니다</span></h2>
     <p class="section-sub">
       저는 프롬프트 결과물을 보여주는 데서 멈추지 않고, AI가 들어갈 자리를 제품 구조 안에 배치합니다. 사용자의 입력, 모델의 판단, 화면의 피드백, 사람의 승인 지점을 나누어 도구가 실제 생활에서 돌아가게 만드는 쪽에 집중합니다.
     </p>
@@ -396,7 +405,7 @@ a{color:inherit}
         <div class="agent-shot reveal from-left"><img src="./assets/hermes-agent.jpg" alt="Telegram 기반 Hermes 개인 에이전트 운영 화면"></div>
         <div class="dark-card reveal from-right">
           <div class="tag">HERMES AGENT STACK</div>
-          <h2>일상 업무를 에이전트 단위로 쪼개<br>Telegram에서 운영합니다</h2>
+          <h2><span class="title-line">일상 업무를 에이전트 단위로 쪼개</span> <span class="title-line">Telegram에서 운영합니다</span></h2>
           <p class="section-sub">Hermes는 제가 쓰는 자체 에이전트 운영면입니다. Codex, Obsidian, Research, Paperclip, Notebook 같은 역할별 채널을 나누고, 오류 알림·임시저장·리서치·문서 처리처럼 반복되는 병목을 대화형 인터페이스로 모아 관리합니다.</p>
           <div class="dark-grid">
             <div class="dark-mini"><strong>Agent Routing</strong><span>업무 유형별로 에이전트를 분리해 리서치, 코드, 메모, 파일 처리 흐름을 나눕니다.</span></div>
@@ -411,7 +420,7 @@ a{color:inherit}
 
   <section class="section" id="process">
     <div class="tag">HOW I BUILD</div>
-    <h2>AI Native하게 만든다는 것은<br>프롬프트를 잘 쓰는 것보다 구조를 잘 나누는 것입니다</h2>
+    <h2><span class="title-line">AI Native하게 만든다는 것은</span> <span class="title-line">프롬프트를 잘 쓰는 것보다 구조를 잘 나누는 것입니다</span></h2>
     <p class="section-sub">제가 만든 도구들은 완성도가 모두 같지는 않습니다. 대신 공통적으로 “문제를 작은 판단 단위로 쪼개고, AI가 맡을 영역과 사람이 확인할 영역을 분리한 뒤, 링크로 테스트 가능한 형태까지 만든다”는 흐름을 따릅니다.</p>
     <div class="loop-grid">
       <div class="loop-card reveal"><div class="loop-step">01</div><div class="loop-title">병목 정의</div><p class="loop-desc">반복 문의, 아이디어 막힘, 투자 판단, 위치 조건, 문서 작성처럼 실제로 막히는 순간을 먼저 잡습니다.</p></div>
@@ -447,7 +456,7 @@ a{color:inherit}
 </main>
 
 <footer class="footer">
-  <h2>AI를 잘 쓴다는 것은<br><span>일상의 문제를 작동하는 구조로 바꾸는 일</span>이라고 생각합니다</h2>
+  <h2><span class="title-line">AI를 잘 쓴다는 것은</span> <span class="title-line"><span class="accent">일상의 문제를 작동하는 구조로 바꾸는 일</span>이라고 생각합니다</span></h2>
   <p>저는 AI를 신기한 도구로 소비하기보다, 반복되는 문제를 줄이고 판단을 보조하며 실행 속도를 높이는 개인 운영체계로 다뤄왔습니다. 이 포트폴리오는 그 방식이 실제 링크와 화면으로 남은 기록입니다.</p>
   <small class="mono">Built by jungju.an · AI Native Tool Portfolio</small>
 </footer>
