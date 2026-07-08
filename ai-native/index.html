@@ -36,7 +36,7 @@ a{color:inherit}
 .nav-links{display:flex;gap:22px;font-size:13px;color:#666;font-weight:700}
 .nav-links a{text-decoration:none}
 .nav-links a:hover{color:var(--point)}
-.hero{min-height:min(100svh,860px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:42px;align-items:center;max-width:var(--max);margin:0 auto;padding:124px 24px 80px}
+.hero{min-height:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:42px;align-items:center;max-width:900px;margin:0 auto;padding:124px 24px 54px}
 .hero>*,
 .project-card>*,
 .agent-section>*{min-width:0}
@@ -48,19 +48,8 @@ a{color:inherit}
 .copy-block{display:block}
 .copy-block+.copy-block{margin-top:22px}
 .title-line{display:block}
-.hero-panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 24px 60px rgba(20,22,28,.08)}
-.terminal{border-radius:20px;background:linear-gradient(145deg,#0a0d13,#17101a);color:#dfe8ff;padding:22px;border:1px solid rgba(255,255,255,.08);overflow:hidden}
-.terminal-head{display:flex;gap:7px;margin-bottom:20px}
-.dot{width:10px;height:10px;border-radius:50%;background:#ff5f57}
-.dot:nth-child(2){background:#ffbd2e}.dot:nth-child(3){background:#28c840}
-.cmd{font-size:13px;line-height:1.75;color:#99a3b5}
-.cmd b{color:#fff}.cmd .ok{color:var(--mint)}.cmd .pink{color:#ff75a8}
-.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px}
-.metric{padding:18px;background:#fff;border:1px solid var(--line);border-radius:18px;min-height:116px}
-.metric-num{font-size:32px;font-weight:900;color:var(--point);font-variant-numeric:tabular-nums}
-.metric-label{font-size:14px;font-weight:850;margin-top:4px}
-.metric-sub{font-size:12px;color:#8a909b;line-height:1.45;margin-top:4px;text-wrap:pretty}
 .section{max-width:var(--max);margin:0 auto;padding:84px 24px}
+#projects{padding-top:30px}
 .section-dark{background:var(--dark);color:#f7f8fb}
 .section-dark .inner{max-width:var(--max);margin:0 auto;padding:84px 24px}
 .section h2,.section-dark h2{font-size:clamp(28px,4vw,44px);line-height:1.18;font-weight:900;margin-bottom:12px;letter-spacing:0}
@@ -166,19 +155,18 @@ a{color:inherit}
 @media(max-width:880px){
   .hero,.project-card,.project-card.reverse,.agent-section{grid-template-columns:minmax(0,1fr)!important}
   .project-card.reverse .project-media{order:0}
-  .metric-grid,.signal-grid,.loop-grid,.lesson-grid,.dark-grid{grid-template-columns:1fr}
+  .signal-grid,.loop-grid,.lesson-grid,.dark-grid{grid-template-columns:1fr}
   .nav-links{display:none}
-  .hero{width:100%;max-width:100%;padding:96px 20px 56px;gap:26px;min-height:auto;overflow:hidden}
-  .hero>div,.hero-panel{width:100%;max-width:100%;min-width:0}
+  .hero{width:100%;max-width:100%;padding:96px 20px 36px;gap:26px;min-height:auto;overflow:hidden}
+  .hero>div{width:100%;max-width:100%;min-width:0}
   .section{padding:64px 20px}
+  #projects{padding-top:28px}
   .section-dark .inner{padding:64px 20px}
   .hero h1{font-size:clamp(31px,9vw,42px);line-height:1.1}
   .hero-copy{font-size:16px;line-height:1.72}
   .copy-block+.copy-block{margin-top:20px}
   .title-line{display:inline}
   .hero-copy,.section-sub,.project-summary,.spec-text,.signal-desc,.loop-desc,.footer p{width:100%;max-width:100%;overflow-wrap:anywhere;word-break:normal;text-wrap:auto}
-  .hero-panel{padding:16px;border-radius:22px}
-  .terminal{padding:18px;border-radius:17px}
   .section h2,.section-dark h2{font-size:clamp(26px,8vw,34px);line-height:1.22}
   .section-sub{font-size:15px;line-height:1.68;margin-bottom:26px}
   .project-card{padding:18px;border-radius:18px;gap:18px}
@@ -199,7 +187,6 @@ a{color:inherit}
 }
 @media(min-width:881px) and (max-width:1100px){
   .signal-grid,.loop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
 </head>
@@ -207,7 +194,6 @@ a{color:inherit}
 <nav class="nav" id="nav">
   <div class="brand mono">jungju.ai</div>
   <div class="nav-links">
-    <a href="#signals">AI Native</a>
     <a href="#projects">Projects</a>
     <a href="#hermes">Hermes</a>
     <a href="#process">Workflow</a>
@@ -224,71 +210,6 @@ a{color:inherit}
         <span class="copy-block">저는 AI를 단순히 문장 생성 도구로 쓰지 않습니다. 가족의 펜션 예약 상담, 아이디어 발산, 투자 리플레이, 위치 기반 QA, 정부지원사업 문서 작성처럼 생활 속에서 반복되는 문제를 <strong>AI 워크플로우와 자체 제작 웹 도구</strong>로 분해하고 배포해왔습니다.</span>
         <span class="copy-block">이 포트폴리오는 비개발자 관점에서 문제를 정의하고, LLM·에이전트·프론트엔드·자동화 흐름을 연결해 실제로 작동하는 프로토타입으로 만든 기록입니다.</span>
       </p>
-      <div class="metric-grid fade d3">
-        <div class="metric reveal">
-          <div class="metric-num"><span class="count-num" data-count="6">0</span></div>
-          <div class="metric-label">자체 제작 프로토타입</div>
-          <div class="metric-sub">예약, 아이데이션, 금융 시뮬레이션, QA, 자기관리, 문서 자동화</div>
-        </div>
-        <div class="metric reveal">
-          <div class="metric-num"><span class="count-num" data-count="4">0</span></div>
-          <div class="metric-label">배포 환경 경험</div>
-          <div class="metric-sub">Netlify, Vercel, Cloudflare Tunnel, 정적 웹 배포</div>
-        </div>
-        <div class="metric reveal">
-          <div class="metric-num"><span class="count-num" data-count="1">0</span></div>
-          <div class="metric-label">개인 에이전트 운영면</div>
-          <div class="metric-sub">Telegram을 허브로 Codex, Research, Obsidian 자동화 연결</div>
-        </div>
-        <div class="metric reveal">
-          <div class="metric-num">0→1</div>
-          <div class="metric-label">문제 정의부터 구현까지</div>
-          <div class="metric-sub">아이디어, 구조화, 화면 설계, 배포, 회고를 직접 수행</div>
-        </div>
-      </div>
-    </div>
-    <aside class="hero-panel fade d2">
-      <div class="terminal">
-        <div class="terminal-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="cmd mono">
-          <b>$ ai-native-check</b><br>
-          문제 정의 <span class="ok">passed</span><br>
-          LLM workflow 설계 <span class="ok">passed</span><br>
-          자체 배포 프로토타입 <span class="ok">passed</span><br>
-          실패 원인 분석 <span class="ok">passed</span><br>
-          일상 병목 자동화 <span class="pink">in production</span>
-        </div>
-      </div>
-    </aside>
-  </section>
-
-  <section class="section" id="signals">
-    <div class="tag">AI NATIVE SIGNALS</div>
-    <h2><span class="title-line">AI를 도구가 아니라</span> <span class="title-line">실행 구조로 씁니다</span></h2>
-    <p class="section-sub">
-      저는 프롬프트 결과물을 보여주는 데서 멈추지 않고, AI가 들어갈 자리를 제품 구조 안에 배치합니다. 사용자의 입력, 모델의 판단, 화면의 피드백, 사람의 승인 지점을 나누어 도구가 실제 생활에서 돌아가게 만드는 쪽에 집중합니다.
-    </p>
-    <div class="signal-grid">
-      <div class="signal-card reveal">
-        <div class="signal-no">01</div>
-        <div class="signal-title">Problem to Product</div>
-        <p class="signal-desc">“불편하다”에서 끝내지 않고 예약, 사고 확장, 모의투자, QA처럼 문제를 사용 가능한 화면과 플로우로 변환합니다.</p>
-      </div>
-      <div class="signal-card reveal">
-        <div class="signal-no">02</div>
-        <div class="signal-title">LLM Orchestration</div>
-        <p class="signal-desc">AI가 해야 할 판단과 사람이 확인해야 할 지점을 분리해 상담, 추천, 코칭, 문서 초안화에 맞는 역할을 설계합니다.</p>
-      </div>
-      <div class="signal-card reveal">
-        <div class="signal-no">03</div>
-        <div class="signal-title">Fast Prototype</div>
-        <p class="signal-desc">아이디어를 설명만 하지 않고, 웹으로 바로 배포해 링크로 검증 가능한 형태까지 가져갑니다.</p>
-      </div>
-      <div class="signal-card reveal">
-        <div class="signal-no">04</div>
-        <div class="signal-title">Failure Literacy</div>
-        <p class="signal-desc">실패한 툴도 숨기지 않습니다. 데이터 소스, 검증 한계, 자동화 품질의 병목을 분석해 다음 설계에 반영합니다.</p>
-      </div>
     </div>
   </section>
 
