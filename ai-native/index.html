@@ -24,13 +24,20 @@
   --cyan:#7DDCFF;
   --dark:#090B10;
   --max:1120px;
+  --portfolio-switcher-h:38px;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;background:#fbfbfc;color:var(--ink);overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
 ::selection{background:var(--point);color:#fff}
 a{color:inherit}
 .mono{font-family:'JetBrains Mono',monospace}
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:15px max(24px,calc((100vw - var(--max))/2 + 24px));transition:.25s ease}
+.portfolio-switcher{position:fixed;top:0;left:0;right:0;z-index:80;height:var(--portfolio-switcher-h);display:flex;align-items:center;justify-content:center;padding:6px 16px;background:rgba(251,251,252,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
+.portfolio-switcher__inner{display:inline-flex;align-items:center;gap:4px;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:3px;background:rgba(255,255,255,.72);border:1px solid rgba(0,0,0,.06);border-radius:999px}
+.portfolio-switcher__inner::-webkit-scrollbar{display:none}
+.portfolio-switcher a{flex:0 0 auto;padding:5px 12px;border-radius:999px;color:#666;text-decoration:none;font-size:12px;font-weight:800;line-height:1.2;white-space:nowrap;transition:all .2s ease}
+.portfolio-switcher a:hover{color:var(--point)}
+.portfolio-switcher a.active{background:var(--point);color:#fff;box-shadow:0 4px 14px rgba(178,31,91,.14)}
+.nav{position:fixed;top:var(--portfolio-switcher-h);left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:15px max(24px,calc((100vw - var(--max))/2 + 24px));transition:.25s ease}
 .nav.scrolled{background:rgba(251,251,252,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
 .brand{font-size:15px;font-weight:800;letter-spacing:.2px}
 .nav-links{display:flex;gap:22px;font-size:13px;color:#666;font-weight:700}
@@ -153,6 +160,9 @@ a{color:inherit}
   .count-num.counting{animation:none}
 }
 @media(max-width:880px){
+  :root{--portfolio-switcher-h:36px}
+  .portfolio-switcher{padding:5px 10px}
+  .portfolio-switcher a{padding:5px 10px;font-size:11px}
   .hero,.project-card,.project-card.reverse,.agent-section{grid-template-columns:minmax(0,1fr)!important}
   .project-card.reverse .project-media{order:0}
   .signal-grid,.loop-grid,.lesson-grid,.dark-grid{grid-template-columns:1fr}
@@ -188,9 +198,19 @@ a{color:inherit}
 @media(min-width:881px) and (max-width:1100px){
   .signal-grid,.loop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+@media print{
+  .portfolio-switcher{display:none}
+}
 </style>
 </head>
 <body>
+<div class="portfolio-switcher" aria-label="Portfolio switcher">
+  <div class="portfolio-switcher__inner">
+    <a href="https://9cathyface8-cyber.github.io/jungju-content-marketing-portfolio/">Content Marketing</a>
+    <a href="https://9cathyface8-cyber.github.io/jungju-content-marketing-portfolio/career/">Career</a>
+    <a class="active" href="https://9cathyface8-cyber.github.io/jungju-portfolio/ai-native/" aria-current="page">AI Native</a>
+  </div>
+</div>
 <nav class="nav" id="nav">
   <div class="brand mono">jungju.ai</div>
   <div class="nav-links">
