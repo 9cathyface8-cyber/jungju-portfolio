@@ -43,11 +43,12 @@ a{color:inherit}
 .nav-links{display:flex;gap:22px;font-size:13px;color:#666;font-weight:700}
 .nav-links a{text-decoration:none}
 .nav-links a:hover{color:var(--point)}
-.hero{min-height:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:42px;align-items:center;max-width:900px;margin:0 auto;padding:124px 24px 54px}
+.hero{min-height:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:42px;align-items:center;max-width:var(--max);margin:0 auto;padding:124px 24px 54px}
 .hero>*,
 .project-card>*,
 .agent-section>*{min-width:0}
 .tag{display:inline-flex;align-items:center;width:max-content;padding:6px 12px;border-radius:999px;background:#FBE8F0;color:var(--point);font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+.hero .tag{display:block;width:auto;padding:0;border-radius:0;background:transparent;color:var(--point);font-size:13px;font-weight:800;letter-spacing:2px;margin-bottom:24px}
 .hero h1{font-size:clamp(38px,6.2vw,72px);line-height:1.05;letter-spacing:0;font-weight:900;margin-bottom:22px}
 .hero h1 span{color:var(--point)}
 .hero-copy{font-size:18px;line-height:1.76;color:#4c5360;max-width:760px;text-wrap:pretty}
