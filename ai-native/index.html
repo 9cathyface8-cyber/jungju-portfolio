@@ -177,6 +177,7 @@ a{color:inherit}
   .hero-copy{font-size:16px;line-height:1.72}
   .copy-block+.copy-block{margin-top:20px}
   .title-line{display:inline}
+  .reveal.from-left,.reveal.from-right{transform:translateY(28px)}
   .hero-copy,.section-sub,.project-summary,.spec-text,.signal-desc,.loop-desc,.footer p{width:100%;max-width:100%;overflow-wrap:anywhere;word-break:normal;text-wrap:auto}
   .section h2,.section-dark h2{font-size:clamp(26px,8vw,34px);line-height:1.22}
   .section-sub{font-size:15px;line-height:1.68;margin-bottom:26px}
@@ -267,6 +268,24 @@ a{color:inherit}
       </article>
 
       <article class="project-card reverse reveal from-right">
+        <div class="project-media phone"><img src="./assets/viral-radar.jpg" alt="Viral Radar 숏폼 트렌드 레이더 UI 화면"></div>
+        <div>
+          <div class="project-kicker">Implemented Prototype</div>
+          <h3 class="project-title">Viral Radar</h3>
+          <p class="project-summary">YouTube Shorts, TikTok, Instagram Reels, X에서 막 뜨기 시작한 숏폼 콘텐츠를 탐색하기 위해 만든 AI Native 트렌드 레이더입니다. 단순 조회수 순위가 아니라 게시 후 경과 시간, 조회수 증가 속도, 계정 기준선 대비 초과 성과, 밈·포맷 복제 신호를 함께 보도록 설계했습니다.</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-label">Intent</div><div class="spec-text">이미 유행한 결과가 아니라, 크리에이터가 제작에 참고할 수 있을 만큼 이른 초기 확산 신호를 찾는 것이 목표였습니다.</div></div>
+            <div class="spec"><div class="spec-label">Engine</div><div class="spec-text">플랫폼별 후보 영상을 공통 스키마로 정규화하고, 반복 스냅샷을 통해 속도·가속도·팬덤 기준선·복제 신호를 계산하는 구조로 구현했습니다.</div></div>
+            <div class="spec"><div class="spec-label">AI Layer</div><div class="spec-text">LLM은 순위 결정을 대신하지 않고, 정량 모델이 선별한 후보의 훅, 포맷, 확산 원인을 사람이 이해할 수 있는 언어로 해석하는 계층으로 배치했습니다.</div></div>
+            <div class="spec"><div class="spec-label">Cost Gate</div><div class="spec-text">프로토타입은 구현했지만, 다수 플랫폼 API 호출, 시간축 스냅샷, 원본 미디어 저장, 중복 탐지, LLM 분석 비용이 커 개인 단독 상시 운영은 보류했습니다.</div></div>
+            <div class="spec"><div class="spec-label">Learning</div><div class="spec-text">AI 분석 능력보다 먼저 신뢰할 수 있는 모집단과 시간축 데이터가 확보되어야 하며, 입력 데이터 품질이 낮으면 정교한 모델도 그럴듯한 오류를 확대한다는 점을 확인했습니다.</div></div>
+          </div>
+          <div class="chips"><span class="chip">Viral Signal Ranking</span><span class="chip">Time-series Snapshot</span><span class="chip">Data Cost Control</span><span class="chip">LLM Interpretation</span></div>
+          <div class="actions"><a class="btn" href="https://viral-radar.new-crown-6985.chatgpt.site" target="_blank" rel="noopener">Live Prototype 열기</a></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal from-left">
         <div class="project-media"><img src="./assets/mindmap.jpg" alt="AI 마인드맵 아이디어 확장 도구 화면"></div>
         <div>
           <div class="project-kicker">AI Mind Map</div>
@@ -282,7 +301,7 @@ a{color:inherit}
         </div>
       </article>
 
-      <article class="project-card reveal from-left">
+      <article class="project-card reverse reveal from-right">
         <div class="project-media"><img src="./assets/chart-game.jpg" alt="국내 대표주 일봉 리플레이 차트게임 화면"></div>
         <div>
           <div class="project-kicker">KRX Replay Desk</div>
@@ -298,7 +317,7 @@ a{color:inherit}
         </div>
       </article>
 
-      <article class="project-card reverse reveal from-right">
+      <article class="project-card reveal from-left">
         <div class="project-media"><img src="./assets/system-window.jpg" alt="AI 자기관리 시스템 윈도우 상태창 화면"></div>
         <div>
           <div class="project-kicker">System Window</div>
@@ -314,7 +333,7 @@ a{color:inherit}
         </div>
       </article>
 
-      <article class="project-card reveal from-left">
+      <article class="project-card reverse reveal from-right">
         <div class="project-media"><img src="./assets/gps-tester.jpg" alt="Naver Pin GPS Tester 앱 프리뷰 화면"></div>
         <div>
           <div class="project-kicker">Location QA Utility</div>
