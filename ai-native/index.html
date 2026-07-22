@@ -49,12 +49,14 @@ a{color:inherit}
 .agent-section>*{min-width:0}
 .tag{display:inline-flex;align-items:center;width:max-content;padding:6px 12px;border-radius:999px;background:#FBE8F0;color:var(--point);font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
 .hero .tag{display:block;width:auto;padding:0;border-radius:0;background:transparent;color:var(--point);font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:24px}
-.hero h1{font-size:clamp(38px,6.2vw,72px);line-height:1.05;letter-spacing:0;font-weight:800;margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6.2vw,72px);line-height:1.05;letter-spacing:0;font-weight:800;margin-bottom:22px;word-break:keep-all;text-wrap:balance}
 .hero h1 span{color:var(--point)}
 .hero-copy{font-size:18px;line-height:1.76;color:#4c5360;max-width:760px;text-wrap:pretty}
 .hero-copy strong{color:#111;font-weight:850}
 .copy-block{display:block}
 .copy-block+.copy-block{margin-top:22px}
+.copy-line{display:block}
+.mobile-title-break{display:inline}
 .title-line{display:block}
 .section{max-width:var(--max);margin:0 auto;padding:84px 24px}
 #projects{padding-top:30px}
@@ -185,8 +187,9 @@ a{color:inherit}
   .hero-copy{font-size:16px;line-height:1.72}
   .copy-block+.copy-block{margin-top:20px}
   .title-line{display:inline}
+  .mobile-title-break{display:block}
   .reveal.from-left,.reveal.from-right{transform:translateY(28px)}
-  .hero-copy,.section-sub,.project-summary,.spec-text,.signal-desc,.loop-desc,.footer p{width:100%;max-width:100%;overflow-wrap:anywhere;word-break:normal;text-wrap:auto}
+  .hero-copy,.section-sub,.project-summary,.spec-text,.signal-desc,.loop-desc,.footer p{width:100%;max-width:100%;overflow-wrap:break-word;word-break:keep-all;text-wrap:pretty}
   .section h2,.section-dark h2{font-size:clamp(26px,8vw,34px);line-height:1.22}
   .section-sub{font-size:15px;line-height:1.68;margin-bottom:26px}
   .project-card{padding:18px;border-radius:18px;gap:18px}
@@ -234,17 +237,20 @@ a{color:inherit}
   <section class="hero">
     <div>
       <div class="tag fade">AI NATIVE MARKETING &amp; OPERATIONS</div>
-      <h1 class="fade d1">반복되는 마케팅 업무를<br><span>AI가 처리할 수 있는 구조로</span><br><span>전환</span></h1>
+      <h1 class="fade d1">반복되는 마케팅 업무를<br><span>AI가 처리할 수 있는</span><br><span>구조로 전환</span></h1>
       <p class="hero-copy fade d2">
         <span class="copy-block">AI의 역할을 <strong>문장 생성에만 한정하지 않는 접근.</strong></span>
-        <span class="copy-block">리서치, 후보 선별, 상담, 데이터 구조화와 인사이트 해석 등 반복 업무를 작은 판단 단위로 분해. AI와 사람의 역할을 구분한 실제 작동 프로토타입 구현.</span>
+        <span class="copy-block">
+          <span class="copy-line">리서치, 후보 선별, 상담, 데이터 구조화와 인사이트 해석 등 반복 업무를 작은 판단 단위로 분해.</span>
+          <span class="copy-line">AI와 사람의 역할을 구분한 실제 작동 프로토타입 구현.</span>
+        </span>
       </p>
     </div>
   </section>
 
   <section class="section" id="projects">
     <div class="tag">MARKETING &amp; OPERATIONS</div>
-    <h2>병목을 실제 워크플로로 바꾼 기록</h2>
+    <h2>병목을 실제 워크플로로 <span class="mobile-title-break">바꾼 기록</span></h2>
     <p class="section-sub">
       콘텐츠 판단·고객 응대와 밀접한 프로젝트부터, 범위를 좁혀 얻은 실험까지 정리.
     </p>
@@ -275,7 +281,10 @@ a{color:inherit}
             <div>
               <div class="proof-kicker">END-TO-END VALIDATION</div>
               <div class="proof-title">예약 확정 문자 종단 흐름 확인</div>
-              <p class="proof-text">프로토타입 환경에서 예약 조건 확인부터 운영자 검토·확정 정보 문자 테스트 발송까지 작동 확인.</p>
+              <p class="proof-text">
+                <span class="copy-line">프로토타입 환경에서 예약 조건 확인부터 운영자 검토까지 종단 흐름 연결.</span>
+                <span class="copy-line">확정 정보 문자 테스트 발송까지 작동 확인.</span>
+              </p>
             </div>
           </div>
           <div class="project-evidence">외부 접속 데모 · 예약 확정 정보 테스트 문자 종단 흐름 확인</div>
@@ -372,7 +381,10 @@ a{color:inherit}
         <div>
           <div class="project-kicker">OTHER EXPERIMENT · LOCATION QA</div>
           <h3 class="project-title">GPS Tester</h3>
-          <p class="project-summary">좌표 선택과 송출 상태 확인을 위한 위치 정보 QA 프로토타입. 실제 결제 우회나 상용 서비스 적용은 검증 범위에서 제외.</p>
+          <p class="project-summary">
+            <span class="copy-line">좌표 선택과 송출 상태를 확인하는 위치 정보 QA 프로토타입.</span>
+            <span class="copy-line">실제 결제 우회나 상용 서비스 적용은 검증 범위에서 제외.</span>
+          </p>
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">Input</div><div class="spec-text">테스트할 GPS 좌표 선택.</div></div>
             <div class="spec"><div class="spec-label">Output</div><div class="spec-text">좌표와 송출 상태를 한 화면에서 확인.</div></div>
@@ -416,7 +428,10 @@ a{color:inherit}
         <div class="dark-card reveal from-right">
           <div class="tag">03 · AGENTIC WORKFLOW</div>
           <h2><span class="title-line">Hermes Agent Stack</span> <span class="title-line">목적별 에이전트를 연결한 개인 작업 허브</span></h2>
-          <p class="section-sub">반복 자료 수집·정리 작업을 매번 새 대화에서 시작하지 않도록 Telegram을 작업 허브로 설정하고 목적별 에이전트를 분리. 흐름: Telegram 요청 → 목적별 에이전트 라우팅 → Research·Codex·Notebook 작업 → 결과 회수 → 사람이 검토·승인</p>
+          <p class="section-sub">
+            <span class="copy-line">반복 자료 수집·정리 작업을 매번 새 대화에서 시작하지 않도록 Telegram을 작업 허브로 설정하고 목적별 에이전트를 분리.</span>
+            <span class="copy-line">Telegram 요청 → 목적별 에이전트 라우팅 → Research·Codex·Notebook 작업 → 결과 회수 → 사람이 검토·승인</span>
+          </p>
           <div class="dark-grid">
             <div class="dark-mini"><strong>기존 병목</strong><span>리서치, 파일 정리와 구현 작업이 서로 다른 도구에 분산되어 문맥과 결과를 다시 옮기는 병목.</span></div>
             <div class="dark-mini"><strong>확인한 것</strong><span>개인 작업 환경에서 요청 목적별 도구·에이전트 라우팅, 요청부터 결과 회수까지 연결. 오류 메시지를 재실행 판단에 활용.</span></div>
@@ -436,7 +451,7 @@ a{color:inherit}
       <div class="loop-card reveal"><div class="loop-step">01 · BOTTLENECK</div><div class="loop-title">병목 정의</div><p class="loop-desc">반복되지만 많은 시간이 필요한 판단·입력 단계 식별.</p></div>
       <div class="loop-card reveal"><div class="loop-step">02 · AI JUDGMENT</div><div class="loop-title">AI 범위 설정</div><p class="loop-desc">분류·구조화·후보 선별처럼 근거를 남길 수 있는 작업 배정.</p></div>
       <div class="loop-card reveal"><div class="loop-step">03 · HUMAN HANDOFF</div><div class="loop-title">사람의 확인 배치</div><p class="loop-desc">예약 확정·예외 처리·최종 판단을 사람의 검토 단계로 분리.</p></div>
-      <div class="loop-card reveal"><div class="loop-step">04 · VALIDATION</div><div class="loop-title">작동 범위 명시</div><p class="loop-desc">구현·개인 검증·운영 보류·실패를 동일 성과로 포장하지 않는 기준.</p></div>
+      <div class="loop-card reveal"><div class="loop-step">04 · VALIDATION</div><div class="loop-title">작동 범위 명시</div><p class="loop-desc">구현·개인 검증·운영 보류·실패를 서로 다른 상태로 분류.</p></div>
       <div class="loop-card reveal"><div class="loop-step">05 · PROTOTYPE</div><div class="loop-title">작동 프로토타입 구현</div><p class="loop-desc">AI와 사람의 역할을 구분한 실제 작동 프로토타입 구현.</p></div>
     </div>
   </section>
@@ -449,7 +464,7 @@ a{color:inherit}
       <div class="lesson-card reveal">
         <div class="signal-no">POINT 01</div>
         <div class="signal-title">근거 우선</div>
-        <p class="signal-desc">모델의 문장보다 데이터 출처와 검증 가능한 입력을 우선 확인.</p>
+        <p class="signal-desc">데이터 출처와 검증 가능한 입력을 모델의 문장보다 우선 확인.</p>
       </div>
       <div class="lesson-card reveal">
         <div class="signal-no">POINT 02</div>
@@ -467,7 +482,10 @@ a{color:inherit}
 
 <footer class="footer">
   <h2><span class="title-line">콘텐츠 판단과 운영을 구조화하는</span> <span class="title-line"><span class="accent">작은 AI 워크플로</span> 구현</span></h2>
-  <p>문제 구조화, AI와 사람이 맡을 판단 분리, 실제 작동 화면 구현.</p>
+  <p>
+    <span class="copy-line">문제를 구조화하고 AI와 사람이 맡을 판단을 분리.</span>
+    <span class="copy-line">실제로 작동하는 화면까지 구현.</span>
+  </p>
   <small class="mono">AI Native · Marketing · Operations · 2026</small>
 </footer>
 
