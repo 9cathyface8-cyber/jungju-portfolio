@@ -72,6 +72,7 @@ a{color:inherit}
 .signal-title{font-size:18px;font-weight:800;margin-bottom:8px}
 .signal-desc{font-size:14px;color:#5d6570;line-height:1.65;text-wrap:pretty}
 .project-list{display:grid;gap:22px}
+.project-list>.section-dark{width:100vw;position:relative;left:50%;margin-left:-50vw}
 .project-card{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:26px;align-items:center}
 .project-card.reverse{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
 .project-card.reverse .project-media{order:2}
@@ -237,7 +238,7 @@ a{color:inherit}
   <section class="hero">
     <div>
       <div class="tag fade">AI NATIVE MARKETING &amp; OPERATIONS</div>
-      <h1 class="fade d1">반복되는 마케팅 업무를<br><span>AI가 처리할 수 있는</span><br><span>구조로 전환</span></h1>
+      <h1 class="fade d1">반복되는 마케팅·운영 업무를<br><span>AI가 처리할 수 있는</span><br><span>구조로 전환</span></h1>
       <p class="hero-copy fade d2">
         <span class="copy-block">AI의 역할을 <strong>문장 생성에만 한정하지 않는 접근.</strong></span>
         <span class="copy-block">
@@ -259,7 +260,7 @@ a{color:inherit}
       <article class="project-card reveal from-left">
         <div class="project-media"><img src="./assets/sansuae.jpg" alt="산수애 펜션 예약 자동화 웹사이트 화면"></div>
         <div>
-          <div class="project-kicker">02 · CUSTOMER OPERATIONS · PUBLIC PROTOTYPE</div>
+          <div class="project-kicker">CUSTOMER OPERATIONS · PUBLIC PROTOTYPE</div>
           <h3 class="project-title">산수애 예약 상담 자동화</h3>
           <p class="project-summary">숙소 운영자의 문의별 예약 조건 재정리 병목 완화를 위한 프로토타입. 고객 자연어 문의의 예약 정보 구조화, 사람 확인이 필요한 예외 분리.</p>
           <div class="project-metrics">
@@ -271,58 +272,77 @@ a{color:inherit}
             <div class="spec"><div class="spec-label">기존 병목</div><div class="spec-text">고객별 문의 문장에서 날짜·인원·객실 조건을 운영자가 수동으로 재정리하는 반복 작업.</div></div>
             <div class="spec"><div class="spec-label">AI가 맡은 일</div><div class="spec-text">자연어 문의에서 예약 조건을 추출하고, 누락 정보와 확인 항목을 운영자가 판단하기 쉬운 형태로 구조화.</div></div>
             <div class="spec"><div class="spec-label">사람의 확인</div><div class="spec-text">실제 객실 재고·최종 요금·예외 요청·운영 정책 충돌 여부 확인 후 예약 확정.</div></div>
-            <div class="spec"><div class="spec-label">확인한 것</div><div class="spec-text">외부 접속 가능한 프로토타입 구현. 예약 조건 확인부터 운영자 검토와 확정 문자까지 종단 흐름 연결.</div></div>
+            <div class="spec"><div class="spec-label">확인한 것</div><div class="spec-text">외부 접속 가능한 프로토타입 구현.</div></div>
             <div class="spec"><div class="spec-label">미측정</div><div class="spec-text">실제 운영 환경의 상담 처리 시간·예외 이관률·예약 확정 전 운영자 수정률·예약 전환 효과 미측정.</div></div>
             <div class="spec"><div class="spec-label">다음 검증</div><div class="spec-text">익명화한 실제 문의를 기준으로 예약 정보 추출과 예외 이관 기준 검증 필요.</div></div>
           </div>
           <div class="chips"><span class="chip">Reservation Structuring</span><span class="chip">Human Handoff</span><span class="chip">End-to-End Validation</span></div>
           <div class="proof-card">
-            <img src="./assets/sansuae-reservation-sms.jpg" alt="산수애 프로토타입 예약 확정 정보 문자 예시">
+            <img src="./assets/sansuae-reservation-sms.jpg" alt="개인정보를 모자이크한 산수애 프로토타입 예약 확정 정보 문자 예시">
             <div>
-              <div class="proof-kicker">END-TO-END VALIDATION</div>
-              <div class="proof-title">예약 확정 문자 종단 흐름 확인</div>
+              <div class="proof-kicker">MESSAGE DELIVERY EVIDENCE</div>
+              <div class="proof-title">예약 확정 문자 테스트 발송</div>
               <p class="proof-text">
-                <span class="copy-line">프로토타입 환경에서 예약 조건 확인부터 운영자 검토까지 종단 흐름 연결.</span>
                 <span class="copy-line">확정 정보 문자 테스트 발송까지 작동 확인.</span>
               </p>
             </div>
           </div>
-          <div class="project-evidence">외부 접속 데모 · 예약 확정 정보 테스트 문자 종단 흐름 확인</div>
           <div class="actions"><a class="btn" href="https://sansuae-yeongwol.new-crown-6985.chatgpt.site/" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
         </div>
       </article>
 
+      <section class="section-dark" id="hermes">
+        <div class="inner">
+          <div class="agent-section">
+            <div class="agent-shot reveal from-left"><img src="./assets/hermes-agent.jpg" alt="Telegram 기반 Hermes 개인 에이전트 운영 화면"></div>
+            <div class="dark-card reveal from-right">
+              <div class="tag">AGENTIC WORKFLOW</div>
+              <h2><span class="title-line">Hermes Agent Stack</span> <span class="title-line">목적별 에이전트를 연결한 개인 작업 허브</span></h2>
+              <p class="section-sub">
+                <span class="copy-line">반복 자료 수집·정리 작업을 매번 새 대화에서 시작하지 않도록 Telegram을 작업 허브로 설정하고 목적별 에이전트를 분리.</span>
+                <span class="copy-line">Telegram 요청 → 목적별 에이전트 라우팅 → Research·Codex·Notebook 작업 → 결과 회수 → 사람이 검토·승인</span>
+              </p>
+              <div class="dark-grid">
+                <div class="dark-mini"><strong>기존 병목</strong><span>리서치, 파일 정리와 구현 작업이 서로 다른 도구에 분산되어 문맥과 결과를 다시 옮기는 병목.</span></div>
+                <div class="dark-mini"><strong>확인한 것</strong><span>개인 작업 환경에서 요청 목적별 도구·에이전트 라우팅, 요청부터 결과 회수까지 연결. 오류 메시지를 재실행 판단에 활용.</span></div>
+                <div class="dark-mini"><strong>사람의 확인</strong><span>외부 발송과 최종 결과에 사람의 승인 배치. 실행 목적과 재실행 여부 최종 판단.</span></div>
+                <div class="dark-mini"><strong>미측정</strong><span>팀 단위 도입 효과·실제 업무 시간 절감·장기간 운영 안정성·업무 성공률 미측정.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <article class="project-card reverse reveal from-right">
         <div class="project-media phone"><img src="./assets/viral-radar.jpg" alt="Viral Radar 숏폼 트렌드 레이더 UI 화면"></div>
         <div>
-          <div class="project-kicker">01 · TREND RESEARCH · PAUSED — DATA/API COST</div>
+          <div class="project-kicker">TREND RESEARCH · PAUSED — DATA/API COST</div>
           <h3 class="project-title">Viral Radar</h3>
           <p class="project-summary">초기 확산 신호 탐지 흐름을 구현한 프로토타입. 이미 유행한 결과가 아닌, 마케터가 활용할 수 있을 만큼 이른 신호 탐지가 목표.</p>
           <div class="project-metrics">
             <div class="project-metric"><strong>정량 후보</strong><span>성장 속도·가속도·계정 기준선 비교</span></div>
             <div class="project-metric"><strong>LLM 해석</strong><span>훅·포맷·확산 이유 설명</span></div>
-            <div class="project-metric"><strong>Cost Gate</strong><span>구현 후 상시 운영 보류</span></div>
+            <div class="project-metric"><strong>Cost Gate</strong><span>데이터 비용·품질 운영 기준</span></div>
           </div>
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">기존 병목</div><div class="spec-text">여러 플랫폼을 직접 탐색할 때 이미 커진 콘텐츠와 초기 신호의 분리가 어렵고, 탐색 시간도 증가.</div></div>
             <div class="spec"><div class="spec-label">AI가 맡은 판단</div><div class="spec-text">정량 모델의 후보 선별 후, LLM이 훅·포맷·확산 이유를 이해 가능한 언어로 해석.</div></div>
             <div class="spec"><div class="spec-label">사람의 검토</div><div class="spec-text">마케터가 영상 원본·출처·근거 지표를 함께 확인한 뒤 실제 제작 참고 여부 결정.</div></div>
             <div class="spec"><div class="spec-label">확인한 것</div><div class="spec-text">초기 확산 신호의 후보 수집·반복 스냅샷·정량 선별·LLM 해석 흐름 구현. 반복 수집이 필요한 구조 확인.</div></div>
-            <div class="spec"><div class="spec-label">운영 판단</div><div class="spec-text">데이터/API 비용과 데이터 품질이 운영의 선행 조건임을 확인. 비용과 신뢰도 문제로 상시 운영 보류.</div></div>
+            <div class="spec"><div class="spec-label">운영 판단</div><div class="spec-text">데이터/API 비용과 데이터 품질을 상시 운영의 선행 조건으로 확인.</div></div>
             <div class="spec"><div class="spec-label">미검증</div><div class="spec-text">초기 신호 적중률과 발견 선행 시간 미검증. 후보 1건당 데이터 비용은 실제 운영 전 검증 필요.</div></div>
             <div class="spec"><div class="spec-label">Flow</div><div class="spec-text">후보 수집 → 반복 스냅샷 → 성장 속도·가속도·계정 기준선 비교 → 정량 후보 선별 → LLM 해석 → 사람이 원본 확인</div></div>
-            <div class="spec"><div class="spec-label">Status</div><div class="spec-text">공개 프로토타입 · 비용으로 상시 데이터 수집 운영 보류</div></div>
           </div>
           <div class="chips"><span class="chip">Signal Ranking</span><span class="chip">Time-series Snapshot</span><span class="chip">Data Cost Gate</span><span class="chip">LLM Interpretation</span></div>
-          <div class="project-evidence">공개 프로토타입 · 데이터/API 비용으로 상시 운영 보류</div>
-          <div class="actions"><a class="btn" href="https://viral-radar.new-crown-6985.chatgpt.site" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
+          <div class="project-evidence">데이터/API 비용으로 상시 수집은 중단된 상태.</div>
+          <div class="actions"><a class="btn" href="https://viral-radar.new-crown-6985.chatgpt.site" target="_blank" rel="noopener">아카이브 프로토타입 보기 ↗</a></div>
         </div>
       </article>
 
       <article class="project-card reveal from-left">
         <div class="project-media"><img src="./assets/mindmap.jpg" alt="AI 마인드맵 아이디어 확장 도구 화면"></div>
         <div>
-          <div class="project-kicker">04 · IDEATION · IMPLEMENTED</div>
+          <div class="project-kicker">IDEATION · IMPLEMENTED</div>
           <h3 class="project-title">AI 아이디어 마인드맵</h3>
           <p class="project-summary">익숙한 단어 안에서만 반복되는 아이디어의 한계 완화. 연관성과 의외성이 다른 후보를 제안하고, 사용자가 선택한 방향으로 가지 확장.</p>
           <div class="project-metrics">
@@ -333,13 +353,12 @@ a{color:inherit}
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">AI가 맡은 일</div><div class="spec-text">주제 연관 단어를 여러 방향으로 제안해 탐색 범위 확장.</div></div>
             <div class="spec"><div class="spec-label">사람의 검토</div><div class="spec-text">기획 목적에 맞는 연결을 선택하고 최종 구조와 메시지 결정.</div></div>
-            <div class="spec"><div class="spec-label">구현 결과</div><div class="spec-text">브라우저에서 주제를 입력하고 가지를 확장할 수 있는 웹 프로토타입 배포.</div></div>
+            <div class="spec"><div class="spec-label">구현 결과</div><div class="spec-text">브라우저에서 주제를 입력하고 가지를 확장할 수 있는 웹 프로토타입 구현.</div></div>
             <div class="spec"><div class="spec-label">다음 측정</div><div class="spec-text">아이디어 후보 채택률과 기획 초안까지 걸리는 시간 측정 필요.</div></div>
             <div class="spec"><div class="spec-label">Flow</div><div class="spec-text">주제 입력 → 관련도·의외성 후보 제안 → 사람이 선택 → 가지 확장 → 구조 저장</div></div>
-            <div class="spec"><div class="spec-label">Status</div><div class="spec-text">외부 접속 가능 · 아이데이션 흐름 구현</div></div>
           </div>
           <div class="chips"><span class="chip">Idea Candidates</span><span class="chip">Human Selection</span><span class="chip">Branch Expansion</span></div>
-          <div class="project-evidence">외부 접속 가능 · 아이데이션 흐름 구현</div>
+          <div class="project-evidence">아이데이션 흐름 구현</div>
           <div class="actions"><a class="btn" href="https://idea-warehouse-ecru.vercel.app/" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
         </div>
       </article>
@@ -383,12 +402,12 @@ a{color:inherit}
           <h3 class="project-title">GPS Tester</h3>
           <p class="project-summary">
             <span class="copy-line">좌표 선택과 송출 상태를 확인하는 위치 정보 QA 프로토타입.</span>
-            <span class="copy-line">실제 결제 우회나 상용 서비스 적용은 검증 범위에서 제외.</span>
+            <span class="copy-line">위치 입력과 상태 확인 범위만 검증.</span>
           </p>
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">Input</div><div class="spec-text">테스트할 GPS 좌표 선택.</div></div>
             <div class="spec"><div class="spec-label">Output</div><div class="spec-text">좌표와 송출 상태를 한 화면에서 확인.</div></div>
-            <div class="spec"><div class="spec-label">Scope</div><div class="spec-text">실제 결제 우회나 상용 서비스 적용은 검증 범위에서 제외.</div></div>
+            <div class="spec"><div class="spec-label">Scope</div><div class="spec-text">위치 입력과 송출 상태 확인 범위만 검증.</div></div>
           </div>
           <div class="chips"><span class="chip">Geo QA</span><span class="chip">Coordinate Selection</span><span class="chip">Location State</span></div>
           <div class="actions"><a class="btn" href="https://naver-pin-gps-tester-web.vercel.app/" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
@@ -406,7 +425,7 @@ a{color:inherit}
           <p class="postmortem">결론: 생성 기능은 구현했으나, 출처와 근거를 추적할 수 없는 결과물은 실제 제출 품질 보장 불가 판단.</p>
         </div>
         <div>
-          <div class="project-kicker">05 · DOCUMENT AUTOMATION · POSTMORTEM</div>
+          <div class="project-kicker">DOCUMENT AUTOMATION · POSTMORTEM</div>
           <h3 class="project-title">Business Plan Studio</h3>
           <p class="project-summary">시장 조사와 문서 초안 생성 흐름, 사업계획서 작성 보조 화면·구조 구현. 데이터 출처와 성공 사례 데이터의 대표성을 확인하기 어려워 운영 중단.</p>
           <div class="spec-grid">
@@ -418,28 +437,6 @@ a{color:inherit}
           <div class="actions"><a class="btn secondary" href="#process">검증 기준 보기</a></div>
         </div>
       </article>
-    </div>
-  </section>
-
-  <section class="section-dark" id="hermes">
-    <div class="inner">
-      <div class="agent-section">
-        <div class="agent-shot reveal from-left"><img src="./assets/hermes-agent.jpg" alt="Telegram 기반 Hermes 개인 에이전트 운영 화면"></div>
-        <div class="dark-card reveal from-right">
-          <div class="tag">03 · AGENTIC WORKFLOW</div>
-          <h2><span class="title-line">Hermes Agent Stack</span> <span class="title-line">목적별 에이전트를 연결한 개인 작업 허브</span></h2>
-          <p class="section-sub">
-            <span class="copy-line">반복 자료 수집·정리 작업을 매번 새 대화에서 시작하지 않도록 Telegram을 작업 허브로 설정하고 목적별 에이전트를 분리.</span>
-            <span class="copy-line">Telegram 요청 → 목적별 에이전트 라우팅 → Research·Codex·Notebook 작업 → 결과 회수 → 사람이 검토·승인</span>
-          </p>
-          <div class="dark-grid">
-            <div class="dark-mini"><strong>기존 병목</strong><span>리서치, 파일 정리와 구현 작업이 서로 다른 도구에 분산되어 문맥과 결과를 다시 옮기는 병목.</span></div>
-            <div class="dark-mini"><strong>확인한 것</strong><span>개인 작업 환경에서 요청 목적별 도구·에이전트 라우팅, 요청부터 결과 회수까지 연결. 오류 메시지를 재실행 판단에 활용.</span></div>
-            <div class="dark-mini"><strong>사람의 확인</strong><span>외부 발송과 최종 결과에 사람의 승인 배치. 실행 목적과 재실행 여부 최종 판단.</span></div>
-            <div class="dark-mini"><strong>미측정</strong><span>팀 단위 도입 효과·실제 업무 시간 절감·장기간 운영 안정성·업무 성공률 미측정.</span></div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
