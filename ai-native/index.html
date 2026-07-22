@@ -88,6 +88,7 @@ a{color:inherit}
 .project-metric{padding:12px 13px;border-radius:12px;background:#fff6fa;border:1px solid #f3d6e2;min-width:0}
 .project-metric strong{display:block;color:var(--point);font-size:19px;line-height:1.15;margin-bottom:4px;font-variant-numeric:tabular-nums}
 .project-metric span{display:block;color:#626975;font-size:11px;line-height:1.45;text-wrap:pretty}
+.metric-accent{color:var(--point);font-weight:900;font-variant-numeric:tabular-nums}
 .project-evidence{margin-top:14px;padding:11px 13px;border-radius:11px;background:#f7f8fa;border:1px solid #eaedf2;color:#747b86;font-size:11px;line-height:1.55;text-wrap:pretty}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .chip{padding:7px 10px;border-radius:999px;background:#f6f2f5;color:#73304c;font-size:12px;font-weight:800}
@@ -107,6 +108,8 @@ a{color:inherit}
 .failure-card .project-metric{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.1)}
 .failure-card .project-metric span{color:#aeb5c2}
 .failure-card .project-evidence{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#9ca4b2}
+.failure-card .metric-accent,.section-dark .metric-accent{color:#ff75a8}
+.dark-mini span.metric-accent{display:inline;color:#ff75a8;font-weight:900}
 .failure-visual{border-radius:18px;background:radial-gradient(circle at 10% 0%,rgba(178,31,91,.36),transparent 34%),linear-gradient(145deg,#141821,#090b10);padding:22px;border:1px solid rgba(255,255,255,.1);min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
 .schema-title{font-size:13px;color:#ff9abe;font-weight:900;letter-spacing:1px;margin-bottom:14px}
 .schema-row{display:flex;align-items:center;gap:10px;margin:9px 0;color:#c9d1df;font-size:13px}
@@ -261,33 +264,33 @@ a{color:inherit}
         <div>
           <div class="project-kicker">02 · CUSTOMER OPERATIONS · PUBLIC PROTOTYPE</div>
           <h3 class="project-title">산수애 예약 상담 자동화</h3>
-          <p class="project-summary">숙소 운영자의 문의별 예약 조건 재정리 병목 완화를 위한 프로토타입. 고객 자연어 문의의 예약 정보 구조화, 사람 확인이 필요한 예외 분리.</p>
+          <p class="project-summary">냥정주를 통해 유입된 예약 234팀의 1인 운영 CS 부담 완화를 위해 설계한 자동 예약 상담 시스템. AI가 자연어 문의를 예약 조건으로 구조화하고, 변수·예외 건만 관리자에게 이관하는 흐름.</p>
           <div class="project-metrics">
-            <div class="project-metric"><strong>E2E</strong><span>예약 조건부터 확정 문자까지 구현</span></div>
-            <div class="project-metric"><strong>Human</strong><span>요금·재고·예외는 운영자가 확인</span></div>
-            <div class="project-metric"><strong>Public</strong><span>외부 접속 가능한 프로토타입</span></div>
+            <div class="project-metric"><strong>234팀</strong><span>예약 CS 처리 규모</span></div>
+            <div class="project-metric"><strong>약 3분</strong><span>문의부터 예약 확정까지 평균</span></div>
+            <div class="project-metric"><strong>0건</strong><span>오버부킹 / 234팀</span></div>
           </div>
           <div class="spec-grid">
-            <div class="spec"><div class="spec-label">기존 병목</div><div class="spec-text">고객별 문의 문장에서 날짜·인원·객실 조건을 운영자가 수동으로 재정리하는 반복 작업.</div></div>
-            <div class="spec"><div class="spec-label">AI가 맡은 일</div><div class="spec-text">자연어 문의에서 예약 조건을 추출하고, 누락 정보와 확인 항목을 운영자가 판단하기 쉬운 형태로 구조화.</div></div>
-            <div class="spec"><div class="spec-label">사람의 확인</div><div class="spec-text">실제 객실 재고·최종 요금·예외 요청·운영 정책 충돌 여부 확인 후 예약 확정.</div></div>
-            <div class="spec"><div class="spec-label">확인한 것</div><div class="spec-text">외부 접속 가능한 프로토타입 구현. 예약 조건 확인부터 운영자 검토와 확정 문자까지 종단 흐름 연결.</div></div>
-            <div class="spec"><div class="spec-label">미측정</div><div class="spec-text">실제 운영 환경의 상담 처리 시간·예외 이관률·예약 확정 전 운영자 수정률·예약 전환 효과 미측정.</div></div>
-            <div class="spec"><div class="spec-label">다음 검증</div><div class="spec-text">익명화한 실제 문의를 기준으로 예약 정보 추출과 예외 이관 기준 검증 필요.</div></div>
+            <div class="spec"><div class="spec-label">기존 병목</div><div class="spec-text">냥정주 유입 예약 234팀을 1인 운영자가 상시 응대하기 어려운 상황. 반복 문의와 예약 조건 확인에 집중된 CS 병목.</div></div>
+            <div class="spec"><div class="spec-label">AI가 맡은 일</div><div class="spec-text">자연어 문의에서 날짜·인원·객실 조건 추출. 누락 정보와 예외 항목 구조화.</div></div>
+            <div class="spec"><div class="spec-label">사람의 확인</div><div class="spec-text">객실 재고·최종 요금·예외 요청·정책 충돌 건만 관리자에게 이관. 관리자 확인 후 예약 확정.</div></div>
+            <div class="spec"><div class="spec-label">초기 오류</div><div class="spec-text">초기 100건당 약 <span class="metric-accent">3–4건</span>, 오류율 3–4%·정상 처리율 96–97%. 오류 로그 분석 및 원인 수정 완료. 수정 후 오류율 재측정 필요.</div></div>
+            <div class="spec"><div class="spec-label">CS 절감</div><div class="spec-text">수동 응대 54.3분/팀 → AI 처리 3분/팀을 234팀에 적용할 경우 <span class="metric-accent">약 200시간</span> 단축. 200시간 기준 <span class="metric-accent">206만 4,000원</span>, 전담 1인 월 209시간 기준 <span class="metric-accent">215만 6,880원</span> 상응. 2026 최저시급 10,320원·주휴 포함 월 환산 기준.</div></div>
+            <div class="spec"><div class="spec-label">확장 계획</div><div class="spec-text">자체 파인튜닝 오픈소스 모델 기반 숙소 전용 에이전트 확장 검토. 소모품·재고 부족 감지 → 구매 후보 생성 → 관리자 승인 → 쿠팡 발주 연동을 포함한 스마트스테이 계획 · 미구현.</div></div>
           </div>
           <div class="chips"><span class="chip">Reservation Structuring</span><span class="chip">Human Handoff</span><span class="chip">End-to-End Validation</span></div>
           <div class="proof-card">
             <img src="./assets/sansuae-reservation-sms.jpg" alt="산수애 프로토타입 예약 확정 정보 문자 예시">
             <div>
               <div class="proof-kicker">END-TO-END VALIDATION</div>
-              <div class="proof-title">예약 확정 문자 종단 흐름 확인</div>
+              <div class="proof-title">예약 확정 문자 종단 흐름과 운영 기록</div>
               <p class="proof-text">
-                <span class="copy-line">프로토타입 환경에서 예약 조건 확인부터 운영자 검토까지 종단 흐름 연결.</span>
-                <span class="copy-line">확정 정보 문자 테스트 발송까지 작동 확인.</span>
+                <span class="copy-line">예약 조건 확인부터 AI 구조화·예외 이관·관리자 검토까지 종단 흐름 연결.</span>
+                <span class="copy-line">확정 정보 문자 발송 확인. 예약 234팀 처리·오버부킹 0건.</span>
               </p>
             </div>
           </div>
-          <div class="project-evidence">외부 접속 데모 · 예약 확정 정보 테스트 문자 종단 흐름 확인</div>
+          <div class="project-evidence">예약 234팀 처리 · 평균 응대 약 3분 · 오버부킹 0건</div>
           <div class="actions"><a class="btn" href="https://sansuae-yeongwol.new-crown-6985.chatgpt.site/" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
         </div>
       </article>
@@ -299,9 +302,9 @@ a{color:inherit}
           <h3 class="project-title">Viral Radar</h3>
           <p class="project-summary">초기 확산 신호 탐지 흐름을 구현한 프로토타입. 이미 유행한 결과가 아닌, 마케터가 활용할 수 있을 만큼 이른 신호 탐지가 목표.</p>
           <div class="project-metrics">
-            <div class="project-metric"><strong>정량 후보</strong><span>성장 속도·가속도·계정 기준선 비교</span></div>
-            <div class="project-metric"><strong>LLM 해석</strong><span>훅·포맷·확산 이유 설명</span></div>
-            <div class="project-metric"><strong>Cost Gate</strong><span>구현 후 상시 운영 보류</span></div>
+            <div class="project-metric"><strong>90→15분</strong><span>일일 수동 탐색→후보 검토 · 예상</span></div>
+            <div class="project-metric"><strong>75분/일</strong><span>예상 단축 시간</span></div>
+            <div class="project-metric"><strong>27.5시간/월</strong><span>월 22일 기준 예상</span></div>
           </div>
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">기존 병목</div><div class="spec-text">여러 플랫폼을 직접 탐색할 때 이미 커진 콘텐츠와 초기 신호의 분리가 어렵고, 탐색 시간도 증가.</div></div>
@@ -311,10 +314,10 @@ a{color:inherit}
             <div class="spec"><div class="spec-label">운영 판단</div><div class="spec-text">데이터/API 비용과 데이터 품질이 운영의 선행 조건임을 확인. 비용과 신뢰도 문제로 상시 운영 보류.</div></div>
             <div class="spec"><div class="spec-label">미검증</div><div class="spec-text">초기 신호 적중률과 발견 선행 시간 미검증. 후보 1건당 데이터 비용은 실제 운영 전 검증 필요.</div></div>
             <div class="spec"><div class="spec-label">Flow</div><div class="spec-text">후보 수집 → 반복 스냅샷 → 성장 속도·가속도·계정 기준선 비교 → 정량 후보 선별 → LLM 해석 → 사람이 원본 확인</div></div>
-            <div class="spec"><div class="spec-label">Status</div><div class="spec-text">공개 프로토타입 · 비용으로 상시 데이터 수집 운영 보류</div></div>
+            <div class="spec"><div class="spec-label">탐색 효율</div><div class="spec-text">수동 탐색 90분/일 → 후보 검토 15분/일 기준 시 <span class="metric-accent">75분/일·27.5시간/월</span> 단축 예상. 월 22일 기준으로 실제 사용 로그 보정 필요.</div></div>
           </div>
           <div class="chips"><span class="chip">Signal Ranking</span><span class="chip">Time-series Snapshot</span><span class="chip">Data Cost Gate</span><span class="chip">LLM Interpretation</span></div>
-          <div class="project-evidence">공개 프로토타입 · 데이터/API 비용으로 상시 운영 보류</div>
+          <div class="project-evidence">공개 프로토타입 · 데이터/API 비용으로 상시 운영 보류 · 시간 효율은 운영 시나리오 기준</div>
           <div class="actions"><a class="btn" href="https://viral-radar.new-crown-6985.chatgpt.site" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
         </div>
       </article>
@@ -326,20 +329,20 @@ a{color:inherit}
           <h3 class="project-title">AI 아이디어 마인드맵</h3>
           <p class="project-summary">익숙한 단어 안에서만 반복되는 아이디어의 한계 완화. 연관성과 의외성이 다른 후보를 제안하고, 사용자가 선택한 방향으로 가지 확장.</p>
           <div class="project-metrics">
-            <div class="project-metric"><strong>후보 제안</strong><span>관련도·의외성이 다른 방향 탐색</span></div>
-            <div class="project-metric"><strong>사람 선택</strong><span>기획 목적에 맞는 연결 결정</span></div>
-            <div class="project-metric"><strong>Public</strong><span>외부 접속 가능한 프로토타입</span></div>
+            <div class="project-metric"><strong>30→10분</strong><span>아이디어 탐색→후보 검토 · 예상</span></div>
+            <div class="project-metric"><strong>20분/회</strong><span>예상 단축 시간</span></div>
+            <div class="project-metric"><strong>미측정</strong><span>후보 채택률·초안 시간</span></div>
           </div>
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">AI가 맡은 일</div><div class="spec-text">주제 연관 단어를 여러 방향으로 제안해 탐색 범위 확장.</div></div>
             <div class="spec"><div class="spec-label">사람의 검토</div><div class="spec-text">기획 목적에 맞는 연결을 선택하고 최종 구조와 메시지 결정.</div></div>
             <div class="spec"><div class="spec-label">구현 결과</div><div class="spec-text">브라우저에서 주제를 입력하고 가지를 확장할 수 있는 웹 프로토타입 배포.</div></div>
-            <div class="spec"><div class="spec-label">다음 측정</div><div class="spec-text">아이디어 후보 채택률과 기획 초안까지 걸리는 시간 측정 필요.</div></div>
+            <div class="spec"><div class="spec-label">아이디어 효율</div><div class="spec-text">아이디어 탐색 30분/회 → 후보 검토 10분/회 기준 시 <span class="metric-accent">20분/회</span> 단축 예상. 실제 후보 채택률과 초안 시간 미측정.</div></div>
             <div class="spec"><div class="spec-label">Flow</div><div class="spec-text">주제 입력 → 관련도·의외성 후보 제안 → 사람이 선택 → 가지 확장 → 구조 저장</div></div>
             <div class="spec"><div class="spec-label">Status</div><div class="spec-text">외부 접속 가능 · 아이데이션 흐름 구현</div></div>
           </div>
           <div class="chips"><span class="chip">Idea Candidates</span><span class="chip">Human Selection</span><span class="chip">Branch Expansion</span></div>
-          <div class="project-evidence">외부 접속 가능 · 아이데이션 흐름 구현</div>
+          <div class="project-evidence">외부 접속 가능 · 아이데이션 흐름 구현 · 시간 효율은 운영 시나리오 기준</div>
           <div class="actions"><a class="btn" href="https://idea-warehouse-ecru.vercel.app/" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
         </div>
       </article>
@@ -349,11 +352,11 @@ a{color:inherit}
         <div>
           <div class="project-kicker">OTHER EXPERIMENT · KRX CHART GAME</div>
           <h3 class="project-title">KRX Chart Game</h3>
-          <p class="project-summary">미래 구간을 가린 일봉 리플레이에 주문·레버리지·마진콜·세션 리포트를 적용한 반복 판단 학습용 모의 투자 도구.</p>
+          <p class="project-summary">과거 실제 차트의 미래 구간을 가린 상태에서 순간 판단을 반복하고, 세션 리포트와 AI 코칭으로 의사결정 근거를 복기하는 모의 투자 학습 도구.</p>
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">Input</div><div class="spec-text">국내 대표 종목의 미래 구간을 가린 일봉 리플레이 사용.</div></div>
-            <div class="spec"><div class="spec-label">Workflow</div><div class="spec-text">주문·레버리지·마진콜 규칙 적용 후 세션 리포트로 판단 결과 확인.</div></div>
-            <div class="spec"><div class="spec-label">Scope</div><div class="spec-text">실제 투자 성과가 아닌 반복 판단 학습용 모의 투자 도구.</div></div>
+            <div class="spec"><div class="spec-label">Workflow</div><div class="spec-text">주문·레버리지·마진콜 규칙 적용. AI 코칭과 세션 리포트를 통한 순간 판단·리스크 복기.</div></div>
+            <div class="spec"><div class="spec-label">자본 노출 환산</div><div class="spec-text">실전 투입 예정 원금 <span class="metric-accent">2,000만 원</span>을 모의 환경으로 대체하는 경우 초기 자본 노출 2,000만 원 회피. 실제 손실 절감액·수익 개선 효과 미측정.</div></div>
           </div>
           <div class="chips"><span class="chip">Replay Simulation</span><span class="chip">Decision Review</span><span class="chip">Risk Training</span></div>
           <div class="actions"><a class="btn" href="https://krx-chartgame.gerimode-krx.workers.dev/" target="_blank" rel="noopener">도구 열기 ↗</a></div>
@@ -369,7 +372,7 @@ a{color:inherit}
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">Input</div><div class="spec-text">사용자의 현재 상태와 목표 입력.</div></div>
             <div class="spec"><div class="spec-label">Output</div><div class="spec-text">현재 상태에서 목표까지 이어지는 하루 일과를 퀘스트로 구성.</div></div>
-            <div class="spec"><div class="spec-label">Scope</div><div class="spec-text">상태 입력과 행동 구성을 연결한 자기관리 프로토타입.</div></div>
+            <div class="spec"><div class="spec-label">계획 효율</div><div class="spec-text">일일 계획 15분 → 퀘스트 검토 3분 기준 시 <span class="metric-accent">12분/일·6시간/월</span> 단축 예상. 30일 기준으로 실제 사용 로그 보정 필요.</div></div>
           </div>
           <div class="chips"><span class="chip">State Input</span><span class="chip">Quest Design</span><span class="chip">Self Management</span><span class="chip">Prototype</span></div>
           <div class="actions"><a class="btn" href="https://web-vercel-inky.vercel.app/" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
@@ -388,7 +391,7 @@ a{color:inherit}
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">Input</div><div class="spec-text">테스트할 GPS 좌표 선택.</div></div>
             <div class="spec"><div class="spec-label">Output</div><div class="spec-text">좌표와 송출 상태를 한 화면에서 확인.</div></div>
-            <div class="spec"><div class="spec-label">Scope</div><div class="spec-text">실제 결제 우회나 상용 서비스 적용은 검증 범위에서 제외.</div></div>
+            <div class="spec"><div class="spec-label">QA 효율</div><div class="spec-text">좌표 입력·상태 확인 10분/회 → 2분/회 기준 시 <span class="metric-accent">8분/회</span> 단축 예상. 실제 테스트 횟수·절감 시간 미측정. 결제 우회·상용 적용은 검증 범위에서 제외.</div></div>
           </div>
           <div class="chips"><span class="chip">Geo QA</span><span class="chip">Coordinate Selection</span><span class="chip">Location State</span></div>
           <div class="actions"><a class="btn" href="https://naver-pin-gps-tester-web.vercel.app/" target="_blank" rel="noopener">프로토타입 열기 ↗</a></div>
@@ -412,7 +415,7 @@ a{color:inherit}
           <div class="spec-grid">
             <div class="spec"><div class="spec-label">구현한 것</div><div class="spec-text">시장 조사와 문서 초안 생성 흐름, 사업계획서 작성을 보조하는 화면과 구조 구현.</div></div>
             <div class="spec"><div class="spec-label">중단한 이유</div><div class="spec-text">데이터 출처 불명확, 성공 사례 데이터의 대표성 확인 한계, 주장과 숫자의 근거 추적 어려움.</div></div>
-            <div class="spec"><div class="spec-label">검증 범위</div><div class="spec-text">생성 기능 구현 · 실제 제출 품질 미검증 · 운영 중단 및 회고</div></div>
+            <div class="spec"><div class="spec-label">생성 효율</div><div class="spec-text">초안 작성 60분 → 생성·검토 15분 기준 시 <span class="metric-accent">45분/건</span> 단축 가능. 출처·근거 추적 한계로 제출 업무 적용 중단. 실제 절감 시간 미측정.</div></div>
           </div>
           <div class="chips"><span class="chip">Source Provenance</span><span class="chip">Rubric Structure</span><span class="chip">Claim Blocking</span><span class="chip">Postmortem</span></div>
           <div class="actions"><a class="btn secondary" href="#process">검증 기준 보기</a></div>
@@ -436,7 +439,7 @@ a{color:inherit}
             <div class="dark-mini"><strong>기존 병목</strong><span>리서치, 파일 정리와 구현 작업이 서로 다른 도구에 분산되어 문맥과 결과를 다시 옮기는 병목.</span></div>
             <div class="dark-mini"><strong>확인한 것</strong><span>개인 작업 환경에서 요청 목적별 도구·에이전트 라우팅, 요청부터 결과 회수까지 연결. 오류 메시지를 재실행 판단에 활용.</span></div>
             <div class="dark-mini"><strong>사람의 확인</strong><span>외부 발송과 최종 결과에 사람의 승인 배치. 실행 목적과 재실행 여부 최종 판단.</span></div>
-            <div class="dark-mini"><strong>미측정</strong><span>팀 단위 도입 효과·실제 업무 시간 절감·장기간 운영 안정성·업무 성공률 미측정.</span></div>
+            <div class="dark-mini"><strong>작업 효율</strong><span>작업별 도구 전환·문맥 재설정 20분 → 결과 확인 5분 기준. 월 40건에서 <span class="metric-accent">10시간/월</span> 단축 예상. 실제 절감 시간·팀 도입 효과·장기 안정성 미측정.</span></div>
           </div>
         </div>
       </div>
